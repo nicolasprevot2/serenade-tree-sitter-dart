@@ -1168,6 +1168,17 @@ module.exports = grammar({
             seq(optional($._metadata), '[', ']')
         )),
 
+
+        async_modifier: $ => field('modifier', 'async'), 
+
+        async_modifier_choice: $ =>  field('modifier', 
+            choice(
+                'async',
+                'async*',
+                'sync*',
+            )
+        ),
+
         // Statements
         statement: $ => choice(
             $.block,
@@ -2165,36 +2176,28 @@ module.exports = grammar({
             field('dimensions', optional($.dimensions))
         ),
 
+
+        function_non_arrow_variant: $ => seq(
+            optional_with_placeholder('modifier_list', $.async_modifier_choice),
+            $.block
+        ),
+
         function_body: $ => choice(
             seq(
-                optional('async'),
+                optional_with_placeholder('modifier_list', $.async_modifier),
                 '=>',
                 $._expression,
                 $._semicolon
             ),
-            seq(
-                optional(choice(
-                    'async',
-                    'async*',
-                    'sync*',
-                )),
-                $.block
-            )
+            $.function_non_arrow_variant
         ),
         function_expression_body: $ => choice(
             seq(
-                optional('async'),
+                optional_with_placeholder('modifier_list', $.async_modifier),
                 '=>',
                 $._expression
             ),
-            seq(
-                optional(choice(
-                    'async',
-                    'async*',
-                    'sync*',
-                )),
-                $.block
-            )
+            $.function_non_arrow_variant
         ),
         function_signature: $ => seq(
             // optional($._metadata),
@@ -2690,3 +2693,8 @@ function binaryRunLeft(rule, separator, superItem, precedence) {
         )
     )
 }
+
+function optional_with_placeholder(field_name, rule) {
+    return choice(field(field_name, rule), field(field_name, blank()));
+}
+  

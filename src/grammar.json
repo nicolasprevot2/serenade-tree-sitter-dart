@@ -3788,6 +3788,35 @@
         }
       }
     },
+    "async_modifier": {
+      "type": "FIELD",
+      "name": "modifier",
+      "content": {
+        "type": "STRING",
+        "value": "async"
+      }
+    },
+    "async_modifier_choice": {
+      "type": "FIELD",
+      "name": "modifier",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "async"
+          },
+          {
+            "type": "STRING",
+            "value": "async*"
+          },
+          {
+            "type": "STRING",
+            "value": "sync*"
+          }
+        ]
+      }
+    },
     "statement": {
       "type": "CHOICE",
       "members": [
@@ -8361,6 +8390,35 @@
         }
       ]
     },
+    "function_non_arrow_variant": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "modifier_list",
+              "content": {
+                "type": "SYMBOL",
+                "name": "async_modifier_choice"
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "modifier_list",
+              "content": {
+                "type": "BLANK"
+              }
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
     "function_body": {
       "type": "CHOICE",
       "members": [
@@ -8371,11 +8429,19 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": "async"
+                  "type": "FIELD",
+                  "name": "modifier_list",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "async_modifier"
+                  }
                 },
                 {
-                  "type": "BLANK"
+                  "type": "FIELD",
+                  "name": "modifier_list",
+                  "content": {
+                    "type": "BLANK"
+                  }
                 }
               ]
             },
@@ -8394,38 +8460,8 @@
           ]
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": "async"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "async*"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "sync*"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "SYMBOL",
-              "name": "block"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "function_non_arrow_variant"
         }
       ]
     },
@@ -8439,11 +8475,19 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": "async"
+                  "type": "FIELD",
+                  "name": "modifier_list",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "async_modifier"
+                  }
                 },
                 {
-                  "type": "BLANK"
+                  "type": "FIELD",
+                  "name": "modifier_list",
+                  "content": {
+                    "type": "BLANK"
+                  }
                 }
               ]
             },
@@ -8458,38 +8502,8 @@
           ]
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": "async"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "async*"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "sync*"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "SYMBOL",
-              "name": "block"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "function_non_arrow_variant"
         }
       ]
     },
