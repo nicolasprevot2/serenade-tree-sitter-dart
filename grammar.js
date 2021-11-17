@@ -75,9 +75,9 @@ module.exports = grammar({
 
     supertypes: $ => [
         // $._expression,
-        $._declaration,
-        $._statement,
-        $._literal,
+        // $._declaration,
+        // $.statement,
+        // $.literal,
         // $._primary,
         // $._type,
         // $._simple_type,
@@ -169,10 +169,10 @@ module.exports = grammar({
             repeat($.import_or_export),
             repeat($.part_directive),
             repeat($.part_of_directive),
-            // The precedence here is to make sure that this rule is matched before any of the _statement rules are matched for testing.
+            // The precedence here is to make sure that this rule is matched before any of the statement rules are matched for testing.
             repeat(prec.dynamic(22, seq(optional($._metadata), $._top_level_definition))),
             //for testing:
-            repeat($._statement)
+            repeat($.statement)
         ),
 
         // Page 187 topLevelDefinition
@@ -250,7 +250,7 @@ module.exports = grammar({
 ***************************************************************************************************
 ***************************************************************************************************/
 
-        _literal: $ => choice(
+        literal: $ => choice(
             $.decimal_integer_literal,
             $.hex_integer_literal,
             $.decimal_floating_point_literal,
@@ -1028,7 +1028,7 @@ module.exports = grammar({
        
 
         _primary: $ => choice(
-            $._literal,
+            $.literal,
             $.function_expression,
             $.identifier,
             $.new_expression,
@@ -1169,7 +1169,7 @@ module.exports = grammar({
         )),
 
         // Statements
-        _statement: $ => choice(
+        statement: $ => choice(
             $.block,
             $.local_variable_declaration,
             $.for_statement,
@@ -1193,7 +1193,7 @@ module.exports = grammar({
         ),
 
         block: $ => seq(
-            '{', repeat($._statement), '}'
+            '{', repeat($.statement), '}'
         ),
 
         expression_statement: $ => seq(
@@ -1202,7 +1202,7 @@ module.exports = grammar({
         ),
 
         labeled_statement: $ => seq(
-            $.identifier, ':', $._statement
+            $.identifier, ':', $.statement
         ),
 
         assert_statement: $ => seq($.assertion, ';'),
@@ -1221,7 +1221,7 @@ module.exports = grammar({
 
         switch_block: $ => seq(
             '{',
-            repeat(choice($.switch_label, $._statement)),
+            repeat(choice($.switch_label, $.statement)),
             '}'
         ),
 
@@ -1232,7 +1232,7 @@ module.exports = grammar({
 
         do_statement: $ => seq(
             'do',
-            field('body', $._statement),
+            field('body', $.statement),
             'while',
             field('condition', $.parenthesized_expression),
             $._semicolon
@@ -1312,15 +1312,15 @@ module.exports = grammar({
         if_statement: $ => prec.right(seq(
             'if',
             field('condition', $.parenthesized_expression),
-            field('consequence', $._statement),
-            optional(seq('else', field('alternative', $._statement)))
+            field('consequence', $.statement),
+            optional(seq('else', field('alternative', $.statement)))
         )),
 
 
         while_statement: $ => seq(
             'while',
             field('condition', $.parenthesized_expression),
-            field('body', $._statement)
+            field('body', $.statement)
         ),
 
         for_statement: $ => seq(
@@ -1329,7 +1329,7 @@ module.exports = grammar({
             '(',
             $._for_loop_parts,
             ')',
-            field('body', $._statement)
+            field('body', $.statement)
         ),
 
         _for_loop_parts: $ => choice(
@@ -1916,7 +1916,7 @@ module.exports = grammar({
         constructor_body: $ => seq(
             '{',
             optional($.explicit_constructor_invocation),
-            repeat($._statement),
+            repeat($.statement),
             '}'
         ),
 

@@ -82,7 +82,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_statement"
+            "name": "statement"
           }
         }
       ]
@@ -335,7 +335,7 @@
         }
       ]
     },
-    "_literal": {
+    "literal": {
       "type": "CHOICE",
       "members": [
         {
@@ -3172,7 +3172,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_literal"
+          "name": "literal"
         },
         {
           "type": "SYMBOL",
@@ -3788,7 +3788,7 @@
         }
       }
     },
-    "_statement": {
+    "statement": {
       "type": "CHOICE",
       "members": [
         {
@@ -3872,7 +3872,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_statement"
+            "name": "statement"
           }
         },
         {
@@ -3907,7 +3907,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_statement"
+          "name": "statement"
         }
       ]
     },
@@ -4021,7 +4021,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_statement"
+                "name": "statement"
               }
             ]
           }
@@ -4079,7 +4079,7 @@
           "name": "body",
           "content": {
             "type": "SYMBOL",
-            "name": "_statement"
+            "name": "statement"
           }
         },
         {
@@ -4493,7 +4493,7 @@
             "name": "consequence",
             "content": {
               "type": "SYMBOL",
-              "name": "_statement"
+              "name": "statement"
             }
           },
           {
@@ -4511,7 +4511,7 @@
                     "name": "alternative",
                     "content": {
                       "type": "SYMBOL",
-                      "name": "_statement"
+                      "name": "statement"
                     }
                   }
                 ]
@@ -4544,7 +4544,7 @@
           "name": "body",
           "content": {
             "type": "SYMBOL",
-            "name": "_statement"
+            "name": "statement"
           }
         }
       ]
@@ -4585,7 +4585,7 @@
           "name": "body",
           "content": {
             "type": "SYMBOL",
-            "name": "_statement"
+            "name": "statement"
           }
         }
       ]
@@ -7276,7 +7276,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_statement"
+            "name": "statement"
           }
         },
         {
@@ -9967,10 +9967,6 @@
     "_ambiguous_name",
     "_class_member_definition"
   ],
-  "supertypes": [
-    "_declaration",
-    "_statement",
-    "_literal"
-  ]
+  "supertypes": []
 }
 
