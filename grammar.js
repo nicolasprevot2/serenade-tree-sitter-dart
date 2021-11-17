@@ -90,7 +90,7 @@ module.exports = grammar({
     ],
 
     conflicts: $ => [
-        [$.block, $.set_or_map_literal],
+        [$.enclosed_body, $.set_or_map_literal],
         [$._primary, $.function_signature],
         [$._type_name, $._primary, $.function_signature],
         [$._primary, $._type_name],
@@ -1168,7 +1168,8 @@ module.exports = grammar({
             seq(optional($._metadata), '[', ']')
         )),
 
-
+        abstract_modifer: $ => field('modifier', 'abstract'),
+        
         async_modifier: $ => field('modifier', 'async'), 
 
         async_modifier_choice: $ =>  field('modifier', 
@@ -1181,7 +1182,7 @@ module.exports = grammar({
 
         // Statements
         statement: $ => choice(
-            $.block,
+            $.enclosed_body,
             $.local_variable_declaration,
             $.for_statement,
             $.while_statement,
@@ -1203,8 +1204,10 @@ module.exports = grammar({
             $.lambda_expression
         ),
 
-        block: $ => seq(
-            '{', repeat($.statement), '}'
+        enclosed_body: $ => seq(
+            '{', 
+            optional_with_placeholder('statement_list', repeat($.statement)),
+            '}'
         ),
 
         expression_statement: $ => seq(
@@ -1275,18 +1278,18 @@ module.exports = grammar({
         _on_part: $ => choice(
             seq(
                 $.catch_clause,
-                $.block
+                $.enclosed_body
             ),
             seq(
                 'on',
                 $._type_not_void,
                 optional($.catch_clause),
-                $.block
+                $.enclosed_body
             )
         ),
         _try_head: $ => seq(
             'try',
-            field('body', $.block),
+            field('body', $.enclosed_body),
         ),
         catch_clause: $ => seq(
             'catch',
@@ -1299,7 +1302,7 @@ module.exports = grammar({
                 )
             ),
             ')',
-            // field('body', $.block)
+            // field('body', $.enclosed_body)
         ),
 
 
@@ -1311,7 +1314,7 @@ module.exports = grammar({
 
         catch_type: $ => sep1($._type, '|'),
 
-        finally_clause: $ => seq('finally', $.block),
+        finally_clause: $ => seq('finally', $.enclosed_body),
 
         if_element: $ => prec.right(seq(
             'if',
@@ -1565,7 +1568,7 @@ module.exports = grammar({
 
         class_definition: $ => choice(
             seq(
-                optional('abstract'),
+                optional_with_placeholder('modifier_list', $.abstract_modifier),
                 'class',
                 field('name', $.identifier),
                 optional(field('type_parameters', $.type_parameters)),
@@ -1575,7 +1578,7 @@ module.exports = grammar({
             ),
             seq(
                 optional($._metadata),
-                optional('abstract'),
+                optional_with_placeholder('modifier_list', $.abstract_modifier),
                 'class',
                 $.mixin_application_class
             )
@@ -1842,7 +1845,7 @@ module.exports = grammar({
 
         static_initializer: $ => seq(
             $._static,
-            $.block
+            $.enclosed_body
         ),
 
         initializers: $ => seq(
@@ -2179,7 +2182,7 @@ module.exports = grammar({
 
         function_non_arrow_variant: $ => seq(
             optional_with_placeholder('modifier_list', $.async_modifier_choice),
-            $.block
+            $.enclosed_body
         ),
 
         function_body: $ => choice(
