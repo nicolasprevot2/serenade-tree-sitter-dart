@@ -30,11 +30,32 @@
           ]
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "import_or_export"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "import_list",
+              "content": {
+                "type": "REPEAT",
+                "content": {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "import_or_export"
+                  },
+                  "named": true,
+                  "value": "import"
+                }
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "import_list",
+              "content": {
+                "type": "BLANK"
+              }
+            }
+          ]
         },
         {
           "type": "REPEAT",
@@ -8711,7 +8732,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "_normal_formal_parameters"
+              "name": "normal_formal_parameters"
             },
             {
               "type": "CHOICE",
@@ -8740,7 +8761,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "_normal_formal_parameters"
+              "name": "normal_formal_parameters"
             },
             {
               "type": "STRING",
@@ -8775,7 +8796,7 @@
         }
       ]
     },
-    "_normal_formal_parameters": {
+    "normal_formal_parameters": {
       "type": "SEQ",
       "members": [
         {
@@ -8952,8 +8973,12 @@
       ]
     },
     "formal_parameter": {
-      "type": "SYMBOL",
-      "name": "_normal_formal_parameter"
+      "type": "FIELD",
+      "name": "parameter",
+      "content": {
+        "type": "SYMBOL",
+        "name": "normal_formal_parameter"
+      }
     },
     "_default_formal_parameter": {
       "type": "SEQ",
@@ -9074,7 +9099,7 @@
         }
       ]
     },
-    "_normal_formal_parameter": {
+    "normal_formal_parameter": {
       "type": "SEQ",
       "members": [
         {
@@ -9867,7 +9892,7 @@
       "constructor_param"
     ],
     [
-      "_normal_formal_parameters"
+      "normal_formal_parameters"
     ],
     [
       "postfix_expression"
@@ -9934,7 +9959,7 @@
       "class_definition"
     ],
     [
-      "_normal_formal_parameter"
+      "normal_formal_parameter"
     ],
     [
       "library_name",

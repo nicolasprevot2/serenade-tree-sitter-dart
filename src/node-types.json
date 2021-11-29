@@ -4633,74 +4633,16 @@
     "type": "formal_parameter",
     "named": true,
     "fields": {
-      "name": {
+      "parameter": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "normal_formal_parameter",
             "named": true
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
-          "type": "const_builtin",
-          "named": true
-        },
-        {
-          "type": "constructor_param",
-          "named": true
-        },
-        {
-          "type": "final_builtin",
-          "named": true
-        },
-        {
-          "type": "formal_parameter_list",
-          "named": true
-        },
-        {
-          "type": "function_type",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inferred_type",
-          "named": true
-        },
-        {
-          "type": "marker_annotation",
-          "named": true
-        },
-        {
-          "type": "type_arguments",
-          "named": true
-        },
-        {
-          "type": "type_identifier",
-          "named": true
-        },
-        {
-          "type": "type_parameters",
-          "named": true
-        },
-        {
-          "type": "void_type",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -4712,7 +4654,7 @@
       "required": false,
       "types": [
         {
-          "type": "formal_parameter",
+          "type": "normal_formal_parameters",
           "named": true
         },
         {
@@ -5777,7 +5719,7 @@
     }
   },
   {
-    "type": "import_or_export",
+    "type": "import",
     "named": true,
     "fields": {},
     "children": {
@@ -7327,6 +7269,95 @@
     }
   },
   {
+    "type": "normal_formal_parameter",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "annotation",
+          "named": true
+        },
+        {
+          "type": "const_builtin",
+          "named": true
+        },
+        {
+          "type": "constructor_param",
+          "named": true
+        },
+        {
+          "type": "final_builtin",
+          "named": true
+        },
+        {
+          "type": "formal_parameter_list",
+          "named": true
+        },
+        {
+          "type": "function_type",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "inferred_type",
+          "named": true
+        },
+        {
+          "type": "marker_annotation",
+          "named": true
+        },
+        {
+          "type": "type_arguments",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        },
+        {
+          "type": "type_parameters",
+          "named": true
+        },
+        {
+          "type": "void_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "normal_formal_parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "formal_parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "normal_parameter_type",
     "named": true,
     "fields": {},
@@ -8080,7 +8111,18 @@
   {
     "type": "program",
     "named": true,
-    "fields": {},
+    "fields": {
+      "import_list": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "import",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
@@ -8123,10 +8165,6 @@
         },
         {
           "type": "getter_signature",
-          "named": true
-        },
-        {
-          "type": "import_or_export",
           "named": true
         },
         {

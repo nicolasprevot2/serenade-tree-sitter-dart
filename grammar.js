@@ -102,7 +102,7 @@ module.exports = grammar({
         [$._primary, $._type_name, $._function_formal_parameter],
         [$._final_const_var_or_type, $._function_formal_parameter],
         [$._primary, $.constructor_param],
-        [$._normal_formal_parameters],
+        [$.normal_formal_parameters],
         [$.postfix_expression],
         [$._declared_identifier],
         [$.equality_expression],
@@ -123,7 +123,7 @@ module.exports = grammar({
         [$._final_const_var_or_type],
         [$.type_parameter, $._type_name],
         [$.class_definition],
-        [$._normal_formal_parameter],
+        [$.normal_formal_parameter],
         [$.library_name, $.dotted_identifier_list],
         [$._top_level_definition, $.inferred_type],
         [$._final_const_var_or_type, $._top_level_definition, $.function_signature],
@@ -2257,7 +2257,7 @@ module.exports = grammar({
             ),
             seq(
                 '(',
-                $._normal_formal_parameters,
+                $.normal_formal_parameters,
                 optional(
                     ','
                 ),
@@ -2265,7 +2265,7 @@ module.exports = grammar({
             ),
             seq(
                 '(',
-                $._normal_formal_parameters,
+                $.normal_formal_parameters,
                 ',',
                 $.optional_formal_parameters,
                 ')'
@@ -2277,7 +2277,7 @@ module.exports = grammar({
             )
         ),
 
-        _normal_formal_parameters: $ => commaSep1($.formal_parameter),
+        normal_formal_parameters: $ => commaSep1($.formal_parameter),
         optional_formal_parameters: $ => choice(
             $._optional_postional_formal_parameters,
             $._named_formal_parameters
@@ -2307,7 +2307,7 @@ module.exports = grammar({
             '}'
         ),
 
-        formal_parameter: $ => $._normal_formal_parameter,
+        formal_parameter: $ => field('parameter', $.normal_formal_parameter),
 
         _default_formal_parameter: $ => seq(
             $.formal_parameter,
@@ -2345,7 +2345,7 @@ module.exports = grammar({
             )
         ),
 
-        _normal_formal_parameter: $ => seq(
+        normal_formal_parameter: $ => seq(
             optional(
                 $._metadata
             ),
