@@ -155,7 +155,10 @@ module.exports = grammar({
         [$._type_not_void_not_function, $._function_type_tail],
         [$._type_not_void],
         [$._type_not_void_not_function],
-        [$.function_signature]
+        [$.function_signature], 
+
+        // serenade
+        [$._for_loop_parts, $.block_initializer],
     ],
 
     word: $ => $.identifier,
@@ -166,7 +169,7 @@ module.exports = grammar({
         program: $ => seq(
             optional($.script_tag),
             optional($.library_name),
-            repeat($.import_or_export),
+            optional_with_placeholder("import_list", repeat(alias($.import_or_export, $.import))),
             repeat($.part_directive),
             repeat($.part_of_directive),
             // The precedence here is to make sure that this rule is matched before any of the statement rules are matched for testing.
@@ -1168,7 +1171,7 @@ module.exports = grammar({
             seq(optional($._metadata), '[', ']')
         )),
 
-        abstract_modifer: $ => field('modifier', 'abstract'),
+        abstract_modifier: $ => field('modifier', 'abstract'),
         
         async_modifier: $ => field('modifier', 'async'), 
 
@@ -1184,7 +1187,7 @@ module.exports = grammar({
         statement: $ => choice(
             $.enclosed_body,
             $.local_variable_declaration,
-            $.for_statement,
+            $.for,
             $.while_statement,
             $.do_statement,
             $.switch_statement,
@@ -1337,8 +1340,12 @@ module.exports = grammar({
             field('body', $.statement)
         ),
 
-        for_statement: $ => seq(
+        for: $ => seq(
             optional('await'),
+            $.for_clause
+        ),
+
+        for_clause: $ => seq(
             'for',
             '(',
             $._for_loop_parts,
@@ -1348,25 +1355,30 @@ module.exports = grammar({
 
         _for_loop_parts: $ => choice(
             seq(
-                choice(
+                field('block_iterator', choice(
                     $._declared_identifier,
                     $.identifier
-                ),
-                'in',
-                field('value', $._expression),
+                )),
+                field('for_each_separator', 'in'),
+                field('block_collection', $._expression),
             ),
             seq(
-                optional(choice(
-                    field('init', $.local_variable_declaration),
-                    seq(
-                        commaSep(field('init', $._expression)),
-                        $._semicolon
-                    )
-                ),),
-                field('condition', optional($._expression)), $._semicolon,
-                commaSep(field('update', $._expression)),
+                optional_with_placeholder('block_initializer_optional', $.block_initializer),
+                optional_with_placeholder('condition_optional', alias($._expression, $.condition)), 
+                $._semicolon,
+                optional_with_placeholder('block_update_optional', $.block_update)
             )
         ),
+
+        block_initializer: $ => choice(
+            field('init', $.local_variable_declaration),
+            seq(
+                commaSep(field('init', $._expression)),
+                $._semicolon
+            )
+        ),
+
+        block_update: $ => commaSep1($._expression),
 
         // support map weirdness?
         for_element: $ => seq(
@@ -1574,7 +1586,7 @@ module.exports = grammar({
                 optional(field('type_parameters', $.type_parameters)),
                 optional(field('superclass', $.superclass)),
                 optional(field('interfaces', $.interfaces)),
-                field('body', $.class_body)
+                field('enclosed_body', $.class_body)
             ),
             seq(
                 optional($._metadata),
@@ -1649,7 +1661,7 @@ module.exports = grammar({
                 $._type_not_void_list
             )),
             optional($.interfaces),
-            $.class_body
+            field('enclosed_body', $.class_body)
         ),
         interfaces: $ => seq(
             $._implements,
@@ -1663,14 +1675,17 @@ module.exports = grammar({
 
         class_body: $ => seq(
             '{',
-            repeat(
-                seq(
-                    optional($._metadata),
-                    $._class_member_definition
-                )
+            field('class_member_list', 
+                repeat(
+                    seq(
+                        optional($._metadata),
+                        $._class_member_definition
+                    )
+                ),
             ),
             '}'
         ),
+
         extension_body: $ => seq(
             '{',
             repeat(
@@ -2364,12 +2379,14 @@ module.exports = grammar({
             )
         ),
         //constructor param = field formal parameter
-        constructor_param: $ => seq(
-            optional($._final_const_var_or_type),
-            $.this,
-            '.',
-            $.identifier,
-            optional($._formal_parameter_part)
+        constructor_param: $ => field('identifier', 
+            seq(
+                optional($._final_const_var_or_type),
+                $.this,
+                '.',
+                $.identifier,
+                optional($._formal_parameter_part)
+            ),
         ),
 
         receiver_parameter: $ => seq(
