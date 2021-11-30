@@ -476,7 +476,7 @@ module.exports = grammar({
 ***************************************************************************************************/
         list_literal: $ => seq(
             optional($.const_builtin), optional($.type_arguments), '[',
-            commaSepTrailingComma($._element),
+            field('list', commaSepTrailingComma(alias($._element, $.list_element))),
             ']'
         ),
         set_or_map_literal: $ => seq(
@@ -1064,14 +1064,18 @@ module.exports = grammar({
             $.arguments
         ),
 
-        arguments: $ => seq('(', optional(
-            seq(
-                $._argument_list,
-                optional(
-                    ','
+        arguments: $ => seq(
+            '(', 
+            optional_with_placeholder('argument_list', 
+                seq(
+                    $._argument_list,
+                    optional(
+                        ','
+                    )
                 )
-            )
-        ), ')'),
+            ), 
+            ')'
+        ),
 
         _argument_list: $ => choice(
             commaSep1($.named_argument),
@@ -1087,7 +1091,7 @@ module.exports = grammar({
 
         argument: $ => $._expression,
 
-        named_argument: $ => seq($.label, $._expression),
+        named_argument: $ => field('argument', seq($.label, $._expression)),
 
         cascade_section: $ => prec.left(
             DART_PREC.Cascade,
