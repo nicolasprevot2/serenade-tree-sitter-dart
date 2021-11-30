@@ -1196,19 +1196,19 @@ module.exports = grammar({
             $.for,
             $.while_statement,
             $.do_statement,
-            $.switch_statement,
+            $.switch,
             $.if_statement,
             //TODO: add rethrow statement.
             // $._declaration,
 
             $.try,
-            $.break_statement,
-            $.continue_statement,
-            $.return_statement,
+            $.break,
+            $.continue,
+            $.return,
             $.yield_statement,
             $.yield_each_statement,
             $.expression_statement,
-            $.assert_statement,
+            $.assert,
             $.labeled_statement,
             $.lambda_expression
         ),
@@ -1228,7 +1228,7 @@ module.exports = grammar({
             $.identifier, ':', $.statement
         ),
 
-        assert_statement: $ => seq($.assertion, ';'),
+        assert: $ => seq($.assertion, ';'),
 
         assertion: $ => seq($._assert_builtin, '(', $._expression, optional(seq(
             ',',
@@ -1236,7 +1236,7 @@ module.exports = grammar({
             optional(',')
         )), ')'),
 
-        switch_statement: $ => seq(
+        switch: $ => seq(
             'switch',
             field('condition', $.parenthesized_expression),
             field('body', $.switch_block)
@@ -1261,17 +1261,17 @@ module.exports = grammar({
             $._semicolon
         ),
 
-        break_statement: $ => seq($._break_builtin, optional($.identifier), $._semicolon),
+        break: $ => seq($._break_builtin, optional($.identifier), $._semicolon),
 
-        continue_statement: $ => seq('continue', optional($.identifier), $._semicolon),
+        continue: $ => seq('continue', optional($.identifier), $._semicolon),
 
         yield_statement: $ => seq('yield', $._expression, $._semicolon),
 
         yield_each_statement: $ => seq('yield', '*', $._expression, $._semicolon),
 
-        return_statement: $ => seq(
+        return: $ => seq(
             'return',
-            optional($._expression),
+            optional_with_placeholder('return_value_optional', alias($._expression, $.return_value)),
             $._semicolon
         ),
 

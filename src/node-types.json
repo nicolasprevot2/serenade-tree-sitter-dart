@@ -349,7 +349,7 @@
     "fields": {}
   },
   {
-    "type": "assert_statement",
+    "type": "assert",
     "named": true,
     "fields": {},
     "children": {
@@ -1841,7 +1841,7 @@
     }
   },
   {
-    "type": "break_statement",
+    "type": "break",
     "named": true,
     "fields": {},
     "children": {
@@ -3010,7 +3010,7 @@
     }
   },
   {
-    "type": "continue_statement",
+    "type": "continue",
     "named": true,
     "fields": {},
     "children": {
@@ -8590,12 +8590,28 @@
     }
   },
   {
-    "type": "return_statement",
+    "type": "return",
+    "named": true,
+    "fields": {
+      "return_value_optional": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "return_value",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "return_value",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "additive_expression",
@@ -9219,15 +9235,15 @@
       "required": true,
       "types": [
         {
-          "type": "assert_statement",
+          "type": "assert",
           "named": true
         },
         {
-          "type": "break_statement",
+          "type": "break",
           "named": true
         },
         {
-          "type": "continue_statement",
+          "type": "continue",
           "named": true
         },
         {
@@ -9263,11 +9279,11 @@
           "named": true
         },
         {
-          "type": "return_statement",
+          "type": "return",
           "named": true
         },
         {
-          "type": "switch_statement",
+          "type": "switch",
           "named": true
         },
         {
@@ -9471,6 +9487,32 @@
     }
   },
   {
+    "type": "switch",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "switch_block",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "switch_block",
     "named": true,
     "fields": {},
@@ -9614,32 +9656,6 @@
           "named": true
         }
       ]
-    }
-  },
-  {
-    "type": "switch_statement",
-    "named": true,
-    "fields": {
-      "body": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "switch_block",
-            "named": true
-          }
-        ]
-      },
-      "condition": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "parenthesized_expression",
-            "named": true
-          }
-        ]
-      }
     }
   },
   {

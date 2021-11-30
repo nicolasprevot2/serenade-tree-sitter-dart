@@ -3915,7 +3915,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "switch_statement"
+          "name": "switch"
         },
         {
           "type": "SYMBOL",
@@ -3927,15 +3927,15 @@
         },
         {
           "type": "SYMBOL",
-          "name": "break_statement"
+          "name": "break"
         },
         {
           "type": "SYMBOL",
-          "name": "continue_statement"
+          "name": "continue"
         },
         {
           "type": "SYMBOL",
-          "name": "return_statement"
+          "name": "return"
         },
         {
           "type": "SYMBOL",
@@ -3951,7 +3951,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "assert_statement"
+          "name": "assert"
         },
         {
           "type": "SYMBOL",
@@ -4029,7 +4029,7 @@
         }
       ]
     },
-    "assert_statement": {
+    "assert": {
       "type": "SEQ",
       "members": [
         {
@@ -4096,7 +4096,7 @@
         }
       ]
     },
-    "switch_statement": {
+    "switch": {
       "type": "SEQ",
       "members": [
         {
@@ -4218,7 +4218,7 @@
         }
       ]
     },
-    "break_statement": {
+    "break": {
       "type": "SEQ",
       "members": [
         {
@@ -4243,7 +4243,7 @@
         }
       ]
     },
-    "continue_statement": {
+    "continue": {
       "type": "SEQ",
       "members": [
         {
@@ -4306,7 +4306,7 @@
         }
       ]
     },
-    "return_statement": {
+    "return": {
       "type": "SEQ",
       "members": [
         {
@@ -4317,11 +4317,24 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "_expression"
+              "type": "FIELD",
+              "name": "return_value_optional",
+              "content": {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expression"
+                },
+                "named": true,
+                "value": "return_value"
+              }
             },
             {
-              "type": "BLANK"
+              "type": "FIELD",
+              "name": "return_value_optional",
+              "content": {
+                "type": "BLANK"
+              }
             }
           ]
         },
