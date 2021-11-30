@@ -79,9 +79,9 @@ module.exports = grammar({
         // $.statement,
         // $.literal,
         // $._primary,
-        // $._type,
+        // $.type,
         // $._simple_type,
-        // $._type,
+        // $.type,
     ],
 
     inline: $ => [
@@ -96,11 +96,11 @@ module.exports = grammar({
         [$._primary, $._type_name],
         [$.variable_declaration, $.initialized_variable_definition, ],
         [$._final_const_var_or_type, $.function_signature, ],
-        [$._primary, $._function_formal_parameter],
+        [$._primary, $.function_formal_parameter],
         [$._primary, $._simple_formal_parameter],
         [$._primary, $.labeled_statement],
-        [$._primary, $._type_name, $._function_formal_parameter],
-        [$._final_const_var_or_type, $._function_formal_parameter],
+        [$._primary, $._type_name, $.function_formal_parameter],
+        [$._final_const_var_or_type, $.function_formal_parameter],
         [$._primary, $.constructor_param],
         [$.normal_formal_parameters],
         [$.postfix_expression],
@@ -137,7 +137,7 @@ module.exports = grammar({
         [$.assignable_expression, $._postfix_expression],
         // [$._type_name, $.assignable_expression],
         // [$._type_name, $.function_signature],
-        [$._type_name, $._function_formal_parameter],
+        [$._type_name, $.function_formal_parameter],
         [$._type_name],
         // [$.assignment_expression, $._expression],
         [$.assignable_expression],
@@ -145,7 +145,7 @@ module.exports = grammar({
         [$.type_arguments],
         [$._primary, $._type_name, $.assignable_expression],
         [$._primary, $._type_name, $.assignable_expression, $.function_signature],
-        [$._primary, $._type_name, $.assignable_expression, $._function_formal_parameter],
+        [$._primary, $._type_name, $.assignable_expression, $.function_formal_parameter],
         [$._type_name, $.function_signature],
         // [$.relational_operator, $._shift_operator],
         [$.declaration, $._external],
@@ -207,14 +207,14 @@ module.exports = grammar({
             ),
             seq(
                 $.getter_signature,
-                // optional($._type),
+                // optional($.type),
                 // $._get,
                 // $.identifier,
                 $.function_body
             ),
             seq(
                 $.setter_signature,
-                // optional($._type),
+                // optional($.type),
                 // $._set,
                 // $.identifier,
                 // $.formal_parameter_list,
@@ -227,20 +227,20 @@ module.exports = grammar({
                     $.final_builtin,
                     $.const_builtin
                 ),
-                optional($._type),
+                optional($.type),
                 $.static_final_declaration_list,
                 $._semicolon
             ),
             seq(
                 $._late_builtin,
                 $.final_builtin,
-                optional($._type),
+                optional($.type),
                 $.initialized_identifier_list,
                 $._semicolon
             ),
             seq(
                 optional($._late_builtin),
-                choice($._type, $.inferred_type),
+                choice($.type, $.inferred_type),
                 $.initialized_identifier_list,
                 $._semicolon
             )
@@ -524,7 +524,7 @@ module.exports = grammar({
 ***************************************************************************************************/
         _expression: $ => choice(
             $.assignment_expression,
-            $.throw_expression,
+            alias($.throw_expression, $.throw),
             seq(
                 $._real_expression,
                 repeat($.cascade_section)
@@ -533,7 +533,7 @@ module.exports = grammar({
         _expression_without_cascade: $ => choice(
             $.assignment_expression_without_cascade,
             $._real_expression,
-            $.throw_expression_without_cascade
+            alias($.throw_expression_without_cascade, $.throw)
         ),
         _real_expression: $ => choice(
             $.conditional_expression,
@@ -607,7 +607,7 @@ module.exports = grammar({
 
         // cast_expression: $ => prec(PREC.CAST, seq(
         //     '(',
-        //     sep1(field('type', $._type), '&'),
+        //     sep1(field('type', $.type), '&'),
         //     ')',
         //     field('value', $._expression)
         // )),
@@ -689,7 +689,7 @@ module.exports = grammar({
         // instanceof_expression: $ => prec(PREC.REL, seq(
         //     field('left', $._expression),
         //     'instanceof',
-        //     field('right', $._type)
+        //     field('right', $.type)
         // )),
 
         lambda_expression: $ => seq(
@@ -1150,7 +1150,7 @@ module.exports = grammar({
             // ),
             seq(
                  '<',
-                commaSep($._type),
+                commaSep($.type),
                 '>',
                 // optional($._nullable_type)
             )
@@ -1163,8 +1163,8 @@ module.exports = grammar({
         ),
 
         _wildcard_bounds: $ => choice(
-            seq('extends', $._type),
-            seq($.super, $._type)
+            seq('extends', $.type),
+            seq($.super, $.type)
         ),
 
         dimensions: $ => prec.right(repeat1(
@@ -1182,6 +1182,8 @@ module.exports = grammar({
                 'sync*',
             )
         ),
+
+        required_modifier: $ => field('modifier', 'required'),
 
         // Statements
         statement: $ => choice(
@@ -1315,7 +1317,7 @@ module.exports = grammar({
         //     $._variable_declarator_id
         // ),
 
-        catch_type: $ => sep1($._type, '|'),
+        catch_type: $ => sep1($.type, '|'),
 
         finally_clause: $ => seq('finally', $.enclosed_body),
 
@@ -1573,7 +1575,7 @@ module.exports = grammar({
                 '=', $.function_type, ';'),
 
             seq($._typedef, 
-                optional($._type), 
+                optional($.type), 
                 $._type_name, 
                 $._formal_parameter_part, ';'),
         ),
@@ -1602,7 +1604,7 @@ module.exports = grammar({
                 optional(field('name', $.identifier)),
                 optional(field('type_parameters', $.type_parameters)),
                 'on',
-                field('class', $._type),
+                field('class', $.type),
                 field('body', $.extension_body)
             ),
         ),
@@ -1669,8 +1671,8 @@ module.exports = grammar({
         ),
 
         interface_type_list: $ => seq(
-            $._type,
-            repeat(seq(',', $._type))
+            $.type,
+            repeat(seq(',', $.type))
         ),
 
         class_body: $ => seq(
@@ -1712,13 +1714,13 @@ module.exports = grammar({
         ),
 
         getter_signature: $ => seq(
-            optional($._type),
+            optional($.type),
             $._get,
             field('name', $.identifier),
             optional($._native)
         ),
         setter_signature: $ => seq(
-            optional($._type),
+            optional($.type),
             $._set,
             field('name', $.identifier),
             $._formal_parameter_part,
@@ -1783,19 +1785,19 @@ module.exports = grammar({
             seq(
                 $._static,
                 $._final_or_const,
-                optional($._type),
+                optional($.type),
                 $.static_final_declaration_list
             ),
             seq(
                 optional($._late_builtin), $.final_builtin,
-                optional($._type),
+                optional($.type),
                 $.initialized_identifier_list
             ),
             seq(
                 optional($._static_or_covariant),
                 optional($._late_builtin),
                 choice(
-                    $._type,
+                    $.type,
                     $.inferred_type
                 ),
                 $.initialized_identifier_list
@@ -1829,7 +1831,7 @@ module.exports = grammar({
             $.bitwise_operator
         ),
         operator_signature: $ => seq(
-            optional($._type),
+            optional($.type),
             $._operator,
             choice(
                 '~',
@@ -1850,7 +1852,7 @@ module.exports = grammar({
             $._external,
             optional($._static)),
         _static_or_covariant: $ => choice(
-            $._covariant,
+            $.covariant_modifier,
             $._static
         ),
         _final_or_const: $ => choice(
@@ -2000,7 +2002,7 @@ module.exports = grammar({
 
         _declared_identifier: $ => seq(
             optional($._metadata),
-            optional($._covariant),
+            optional_with_placeholder('modifier_list', $.covariant_modifier),
             $._final_const_var_or_type,
             field('name', $.identifier)
         ),
@@ -2008,18 +2010,18 @@ module.exports = grammar({
         // Types
 
         _final_const_var_or_type: $ => choice(
-            seq(optional($._late_builtin), $.final_builtin, optional($._type)),
+            seq(optional($._late_builtin), $.final_builtin, optional($.type)),
             seq($.const_builtin, optional(
-                $._type
+                $.type
             )),
             seq(optional($._late_builtin),
                 choice(
                     $.inferred_type,
-                    $._type
+                    $.type
                 ))
         ),
 
-        _type: $ => choice(
+        type: $ => choice(
             seq(
                 $.function_type,
                 optional($._nullable_type)
@@ -2084,7 +2086,7 @@ module.exports = grammar({
 
         normal_parameter_type: $ => choice(
             $.typed_identifier,
-            $._type
+            $.type
         ),
 
         optional_parameter_types: $ => choice(
@@ -2156,7 +2158,7 @@ module.exports = grammar({
 
         typed_identifier: $ => seq(
             optional($._metadata),
-            $._type,
+            $.type,
             $.identifier
         ),
 
@@ -2183,7 +2185,7 @@ module.exports = grammar({
                 field('type_parameters', $.type_parameters),
                 optional($._metadata),
             )),
-            field('type', $._type),
+            field('type', $.type),
             $._method_declarator,
             optional($.throws)
         ),
@@ -2219,7 +2221,7 @@ module.exports = grammar({
         ),
         function_signature: $ => seq(
             // optional($._metadata),
-            optional($._type),
+            optional($.type),
             field('name', choice(
                 alias(
                     $._get,
@@ -2258,54 +2260,21 @@ module.exports = grammar({
             optional_with_placeholder('positional_parameter_list_optional', $.optional_postional_formal_parameters),
             ')'
         ),
-        // serenade: Try optional version above: 
-        // _strict_formal_parameter_list: $ => choice(
-        //     seq(
-        //         '(',
-        //         ')'
-        //     ),
-        //     seq(
-        //         '(',
-        //         $.normal_formal_parameters,
-        //         optional(
-        //             ','
-        //         ),
-        //         ')'
-        //     ),
-        //     seq(
-        //         '(',
-        //         $.normal_formal_parameters,
-        //         ',',
-        //         $.optional_formal_parameters,
-        //         ')'
-        //     ),
-        //     seq(
-        //         '(',
-        //         $.optional_formal_parameters,
-        //         ')'
-        //     )
-        // ),
 
         normal_formal_parameters: $ => commaSep1($.formal_parameter),
-        // optional_formal_parameters: $ => choice(
-        //     $.optional_postional_formal_parameters,
-        //     $.named_formal_parameters
-        // ),
-
-       
 
         positional_parameters: $ => seq(
             '[',
-            commaSep1(
-                $._default_formal_parameter
-            ),
+            field('positional_parameter_list', commaSep1(
+                alias($.default_formal_parameter, $.positional_parameter)
+            )),
             ']'
         ),
         optional_postional_formal_parameters: $ => seq(
             '[',
-            commaSep1TrailingComma(
-                $._default_formal_parameter
-            ),
+            field('positional_parameter_list', commaSep1TrailingComma(
+                alias($.default_formal_parameter, $.positional_parameter)
+            )),
             ']'
         ),
         named_formal_parameters: $ => seq(
@@ -2318,7 +2287,7 @@ module.exports = grammar({
 
         formal_parameter: $ => field('parameter', $.normal_formal_parameter),
 
-        _default_formal_parameter: $ => seq(
+        default_formal_parameter: $ => seq(
             $.formal_parameter,
             optional(
                 seq(
@@ -2327,52 +2296,56 @@ module.exports = grammar({
                 )
             )
         ),
-        default_named_parameter: $ => choice(
-            seq(
-                optional(
-                    'required'
-                ),
-                $.formal_parameter,
-                optional(
-                    seq(
-                        '=',
-                        $._expression
-                    )
-                )
-            ),
-            seq(
-                optional(
-                    'required'
-                ),
-                $.formal_parameter,
-                optional(
-                    seq(
-                        ':',
-                        $._expression
-                    )
-                )
-            )
-        ),
+        default_named_parameter: $ => seq(
+            optional_with_placeholder('modifier_list', $.required_modifier),
+            $.formal_parameter, 
+            optional(seq(
+                choice('=', ':'),
+                $._expression
+            ))
+        ),        
+        // choice(
+        //     seq(
+        //         optional(
+        //             'required'
+        //         ),
+        //         $.formal_parameter,
+        //         optional(
+        //             seq(
+        //                 '=',
+        //                 $._expression
+        //             )
+        //         )
+        //     ),
+        //     seq(
+        //         optional(
+        //             'required'
+        //         ),
+        //         $.formal_parameter,
+        //         optional(
+        //             seq(
+        //                 ':',
+        //                 $._expression
+        //             )
+        //         )
+        //     )
+        // ),
 
         normal_formal_parameter: $ => seq(
             optional(
                 $._metadata
             ),
             choice(
-                $._function_formal_parameter,
+                $.function_formal_parameter,
                 $._simple_formal_parameter,
                 $.constructor_param
                 // $.field_formal_parameter
             )
         ),
 
-        _function_formal_parameter: $ => seq(
-            optional(
-                $._covariant
-            ),
-            optional(
-                $._type
-            ),
+        function_formal_parameter: $ => seq(
+            optional_with_placeholder('modifier_list', $.covariant_modifier),
+            optional_with_placeholder('type_optional', $.type),
             $.identifier,
             $._formal_parameter_part,
             optional($._nullable_type)
@@ -2381,9 +2354,7 @@ module.exports = grammar({
         _simple_formal_parameter: $ => choice(
             $._declared_identifier,
             seq(
-                optional(
-                    $._covariant
-                ),
+                optional_with_placeholder('modifier_list', $.covariant_modifier),
                 $.identifier
             )
         ),
@@ -2400,20 +2371,20 @@ module.exports = grammar({
 
         receiver_parameter: $ => seq(
             optional($._metadata),
-            $._type,
+            $.type,
             optional(seq($.identifier, '.')),
             $.this
         ),
 
         spread_parameter: $ => seq(
             optional($._metadata),
-            $._type,
+            $.type,
             '...',
             $._declared_identifier
         ),
 
         throws: $ => seq(
-            'throws', commaSep1($._type)
+            'throws', commaSep1($.type)
         ),
 
         local_variable_declaration: $ => seq(
@@ -2473,9 +2444,9 @@ module.exports = grammar({
         _break_builtin: $ => token('break'),
         _assert_builtin: $ => token('assert'),
         case_builtin: $ => token('case'),
-        _covariant: $ => prec(
+        covariant_modifier: $ => prec(
             DART_PREC.BUILTIN,
-            'covariant',
+            field('modifier', 'covariant'),
         ),
         _deferred: $ => prec(
             DART_PREC.BUILTIN,
