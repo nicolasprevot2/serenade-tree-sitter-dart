@@ -4648,20 +4648,37 @@
   {
     "type": "formal_parameter_list",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "normal_formal_parameters",
-          "named": true
-        },
-        {
-          "type": "optional_formal_parameters",
-          "named": true
-        }
-      ]
+    "fields": {
+      "named_parameter_list_optional": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "named_formal_parameters",
+            "named": true
+          }
+        ]
+      },
+      "parameter_list": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "normal_formal_parameters",
+            "named": true
+          }
+        ]
+      },
+      "positional_parameter_list_optional": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "optional_postional_formal_parameters",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -7218,6 +7235,153 @@
     }
   },
   {
+    "type": "named_formal_parameters",
+    "named": true,
+    "fields": {
+      "named_parameter_list": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "named_parameter",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "named_parameter",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "additive_expression",
+          "named": true
+        },
+        {
+          "type": "assignment_expression",
+          "named": true
+        },
+        {
+          "type": "bitwise_and_expression",
+          "named": true
+        },
+        {
+          "type": "bitwise_or_expression",
+          "named": true
+        },
+        {
+          "type": "bitwise_xor_expression",
+          "named": true
+        },
+        {
+          "type": "cascade_section",
+          "named": true
+        },
+        {
+          "type": "conditional_expression",
+          "named": true
+        },
+        {
+          "type": "const_object_expression",
+          "named": true
+        },
+        {
+          "type": "equality_expression",
+          "named": true
+        },
+        {
+          "type": "formal_parameter",
+          "named": true
+        },
+        {
+          "type": "function_expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_null_expression",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "logical_and_expression",
+          "named": true
+        },
+        {
+          "type": "logical_or_expression",
+          "named": true
+        },
+        {
+          "type": "multiplicative_expression",
+          "named": true
+        },
+        {
+          "type": "new_expression",
+          "named": true
+        },
+        {
+          "type": "postfix_expression",
+          "named": true
+        },
+        {
+          "type": "relational_expression",
+          "named": true
+        },
+        {
+          "type": "selector",
+          "named": true
+        },
+        {
+          "type": "shift_expression",
+          "named": true
+        },
+        {
+          "type": "super",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        },
+        {
+          "type": "throw_expression",
+          "named": true
+        },
+        {
+          "type": "type_cast_expression",
+          "named": true
+        },
+        {
+          "type": "type_test_expression",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unconditional_assignable_selector",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "named_parameter_types",
     "named": true,
     "fields": {},
@@ -7433,12 +7597,46 @@
     }
   },
   {
-    "type": "optional_formal_parameters",
+    "type": "optional_parameter_types",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "named_parameter_types",
+          "named": true
+        },
+        {
+          "type": "optional_positional_parameter_types",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "optional_positional_parameter_types",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
+      "types": [
+        {
+          "type": "normal_parameter_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "optional_postional_formal_parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
       "types": [
         {
           "type": "additive_expression",
@@ -7554,40 +7752,6 @@
         },
         {
           "type": "unconditional_assignable_selector",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "optional_parameter_types",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "named_parameter_types",
-          "named": true
-        },
-        {
-          "type": "optional_positional_parameter_types",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "optional_positional_parameter_types",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "normal_parameter_type",
           "named": true
         }
       ]

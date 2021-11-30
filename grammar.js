@@ -2249,39 +2249,48 @@ module.exports = grammar({
 
         
         formal_parameter_list: $ => $._strict_formal_parameter_list,
-        
-        _strict_formal_parameter_list: $ => choice(
-            seq(
-                '(',
-                ')'
-            ),
-            seq(
-                '(',
-                $.normal_formal_parameters,
-                optional(
-                    ','
-                ),
-                ')'
-            ),
-            seq(
-                '(',
-                $.normal_formal_parameters,
-                ',',
-                $.optional_formal_parameters,
-                ')'
-            ),
-            seq(
-                '(',
-                $.optional_formal_parameters,
-                ')'
-            )
+
+        _strict_formal_parameter_list: $ => seq(
+            '(', 
+            optional_with_placeholder('parameter_list', $.normal_formal_parameters), 
+            optional(','), 
+            optional_with_placeholder('named_parameter_list_optional', $.named_formal_parameters),
+            optional_with_placeholder('positional_parameter_list_optional', $.optional_postional_formal_parameters),
+            ')'
         ),
+        // serenade: Try optional version above: 
+        // _strict_formal_parameter_list: $ => choice(
+        //     seq(
+        //         '(',
+        //         ')'
+        //     ),
+        //     seq(
+        //         '(',
+        //         $.normal_formal_parameters,
+        //         optional(
+        //             ','
+        //         ),
+        //         ')'
+        //     ),
+        //     seq(
+        //         '(',
+        //         $.normal_formal_parameters,
+        //         ',',
+        //         $.optional_formal_parameters,
+        //         ')'
+        //     ),
+        //     seq(
+        //         '(',
+        //         $.optional_formal_parameters,
+        //         ')'
+        //     )
+        // ),
 
         normal_formal_parameters: $ => commaSep1($.formal_parameter),
-        optional_formal_parameters: $ => choice(
-            $._optional_postional_formal_parameters,
-            $._named_formal_parameters
-        ),
+        // optional_formal_parameters: $ => choice(
+        //     $.optional_postional_formal_parameters,
+        //     $.named_formal_parameters
+        // ),
 
        
 
@@ -2292,18 +2301,18 @@ module.exports = grammar({
             ),
             ']'
         ),
-        _optional_postional_formal_parameters: $ => seq(
+        optional_postional_formal_parameters: $ => seq(
             '[',
             commaSep1TrailingComma(
                 $._default_formal_parameter
             ),
             ']'
         ),
-        _named_formal_parameters: $ => seq(
+        named_formal_parameters: $ => seq(
             '{',
-            commaSep1TrailingComma(
-                $._default_named_parameter
-            ),
+            field('named_parameter_list', commaSep1TrailingComma(
+                alias($.default_named_parameter, $.named_parameter)
+            )),
             '}'
         ),
 
@@ -2318,7 +2327,7 @@ module.exports = grammar({
                 )
             )
         ),
-        _default_named_parameter: $ => choice(
+        default_named_parameter: $ => choice(
             seq(
                 optional(
                     'required'
