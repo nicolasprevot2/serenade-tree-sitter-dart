@@ -1638,12 +1638,12 @@
         }
       ]
     },
-    "pair": {
+    "key_value_pair": {
       "type": "SEQ",
       "members": [
         {
           "type": "FIELD",
-          "name": "key",
+          "name": "key_value_pair_key",
           "content": {
             "type": "SYMBOL",
             "name": "_expression"
@@ -1655,7 +1655,7 @@
         },
         {
           "type": "FIELD",
-          "name": "value",
+          "name": "key_value_pair_value",
           "content": {
             "type": "SYMBOL",
             "name": "_expression"
@@ -1672,7 +1672,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "pair"
+          "name": "key_value_pair"
         },
         {
           "type": "SYMBOL",
@@ -2016,7 +2016,7 @@
         }
       ]
     },
-    "lambda_expression": {
+    "lambda": {
       "type": "SEQ",
       "members": [
         {
@@ -3976,7 +3976,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "lambda_expression"
+          "name": "lambda"
         }
       ]
     },
@@ -10110,7 +10110,7 @@
     ],
     [
       "_top_level_definition",
-      "lambda_expression"
+      "lambda"
     ],
     [
       "_top_level_definition",

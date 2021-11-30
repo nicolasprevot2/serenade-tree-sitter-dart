@@ -116,7 +116,7 @@ module.exports = grammar({
         [$._expression],
         // [$._real_expression, $._below_relational_expression],
         [$._postfix_expression],
-        [$._top_level_definition, $.lambda_expression],
+        [$._top_level_definition, $.lambda],
         [$._top_level_definition, $._final_const_var_or_type],
         [$._top_level_definition, $.const_object_expression, $._final_const_var_or_type],
         [$._final_const_var_or_type, $.const_object_expression],
@@ -489,10 +489,10 @@ module.exports = grammar({
             '}'
         ),
     
-        pair: $ => seq(
-            field('key', $._expression),
+        key_value_pair: $ => seq(
+            field('key_value_pair_key', $._expression),
             ':',
-            field('value', $._expression)
+            field('key_value_pair_value', $._expression)
         ),
         // pair_or_element: $ => seq(
         //     field('key', $._expression),
@@ -506,7 +506,7 @@ module.exports = grammar({
 
         _element: $ => choice(
             $._expression,
-            $.pair,
+            $.key_value_pair,
             $.spread_element,
             $.if_element,
             $.for_element
@@ -694,7 +694,7 @@ module.exports = grammar({
         //     field('right', $.type)
         // )),
 
-        lambda_expression: $ => seq(
+        lambda: $ => seq(
             field('parameters', $.function_signature),
             field(
                 'body',
@@ -1213,7 +1213,7 @@ module.exports = grammar({
             $.expression_statement,
             $.assert,
             $.labeled_statement,
-            $.lambda_expression
+            $.lambda
         ),
 
         enclosed_body: $ => seq(
