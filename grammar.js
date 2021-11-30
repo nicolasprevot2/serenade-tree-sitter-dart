@@ -1198,7 +1198,7 @@ module.exports = grammar({
             $.local_variable_declaration,
             $.for,
             $.while,
-            $.do_statement,
+            $.do_while,
             $.switch,
             $.if,
             //TODO: add rethrow statement.
@@ -1256,7 +1256,7 @@ module.exports = grammar({
             seq('default', ':')
         ),
 
-        do_statement: $ => seq(
+        do_while: $ => seq(
             'do',
             field('body', $.statement),
             'while',
@@ -1429,20 +1429,22 @@ module.exports = grammar({
 
         // Annotations
 
-        _annotation: $ => choice(
+        annotation_: $ => field('decorator', choice(
             $.marker_annotation,
             $.annotation
-        ),
+        )),
 
         marker_annotation: $ => seq(
             '@',
-            field('name', choice($.identifier, $.scoped_identifier))
+            field('decorator_expression', choice($.identifier, $.scoped_identifier))
         ),
 
         annotation: $ => seq(
             '@',
-            field('name', choice($.identifier, $.scoped_identifier)),
-            field('arguments', $.arguments)
+            field('decorator_expression', seq(
+                choice($.identifier, $.scoped_identifier),
+                $.arguments
+            ))
         ),
         //
         // annotation_argument_list: $ => seq(
@@ -1462,7 +1464,7 @@ module.exports = grammar({
         // //TODO: remove unnecessary annotation related stuff.
         // _element_value: $ => prec(1, choice(
         //     $._expression,
-        //     $._annotation
+        //     $.annotation_
         // )),
 
         // element_value_array_initializer: $ => seq(
@@ -1644,7 +1646,7 @@ module.exports = grammar({
             ),
         ),
 
-        _metadata: $ => prec.right(repeat1($._annotation)),
+        _metadata: $ => prec.right(repeat1($.annotation_)),
 
 
         type_parameters: $ => seq(

@@ -3928,7 +3928,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "do_statement"
+          "name": "do_while"
         },
         {
           "type": "SYMBOL",
@@ -4198,7 +4198,7 @@
         }
       ]
     },
-    "do_statement": {
+    "do_while": {
       "type": "SEQ",
       "members": [
         {
@@ -5052,18 +5052,22 @@
         }
       ]
     },
-    "_annotation": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "marker_annotation"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "annotation"
-        }
-      ]
+    "annotation_": {
+      "type": "FIELD",
+      "name": "decorator",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "marker_annotation"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "annotation"
+          }
+        ]
+      }
     },
     "marker_annotation": {
       "type": "SEQ",
@@ -5074,7 +5078,7 @@
         },
         {
           "type": "FIELD",
-          "name": "name",
+          "name": "decorator_expression",
           "content": {
             "type": "CHOICE",
             "members": [
@@ -5100,27 +5104,28 @@
         },
         {
           "type": "FIELD",
-          "name": "name",
+          "name": "decorator_expression",
           "content": {
-            "type": "CHOICE",
+            "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "identifier"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "scoped_identifier"
+                  }
+                ]
               },
               {
                 "type": "SYMBOL",
-                "name": "scoped_identifier"
+                "name": "arguments"
               }
             ]
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "arguments",
-          "content": {
-            "type": "SYMBOL",
-            "name": "arguments"
           }
         }
       ]
@@ -5942,7 +5947,7 @@
         "type": "REPEAT1",
         "content": {
           "type": "SYMBOL",
-          "name": "_annotation"
+          "name": "annotation_"
         }
       }
     },
