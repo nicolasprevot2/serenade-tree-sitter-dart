@@ -159,6 +159,8 @@ module.exports = grammar({
 
         // serenade
         [$._for_loop_parts, $.block_initializer],
+        [$.if],
+        [$.if_clause, $.else_if_clause],
     ],
 
     word: $ => $.identifier,
@@ -1043,7 +1045,6 @@ module.exports = grammar({
                 $.super,
                 $.unconditional_assignable_selector
             )
-            // $.parenthesized_expression,
             // $.object_creation_expression,
             // $.field_access,
             // $.array_access,
@@ -1052,7 +1053,7 @@ module.exports = grammar({
         ),
 
 
-        parenthesized_expression: $ => seq('(', $._expression, ')'),
+        parenthesized_condition: $ => seq('(', alias($._expression, $.condition), ')'),
 
         _compound_access: $ => choice('.', '?.'),
 
@@ -1197,7 +1198,7 @@ module.exports = grammar({
             $.while_statement,
             $.do_statement,
             $.switch,
-            $.if_statement,
+            $.if,
             //TODO: add rethrow statement.
             // $._declaration,
 
@@ -1238,7 +1239,7 @@ module.exports = grammar({
 
         switch: $ => seq(
             'switch',
-            field('condition', $.parenthesized_expression),
+            $.parenthesized_condition,
             field('body', $.switch_block)
         ),
 
@@ -1257,7 +1258,7 @@ module.exports = grammar({
             'do',
             field('body', $.statement),
             'while',
-            field('condition', $.parenthesized_expression),
+            $.parenthesized_condition,
             $._semicolon
         ),
 
@@ -1331,22 +1332,45 @@ module.exports = grammar({
 
         if_element: $ => prec.right(seq(
             'if',
-            field('condition', $.parenthesized_expression),
+            $.parenthesized_condition,
             field('consequence', $._element),
             optional(seq('else', field('alternative', $._element)))
         )),
 
-        if_statement: $ => prec.right(seq(
-            'if',
-            field('condition', $.parenthesized_expression),
-            field('consequence', $.statement),
-            optional(seq('else', field('alternative', $.statement)))
+        // if: $ => prec.right(seq(
+        //     'if',
+        //     $.parenthesized_condition,
+        //     field('consequence', $.statement),
+        //     optional(seq('else', field('alternative', $.statement)))
+        // )),
+        if: $ => seq(
+            $.if_clause, 
+            optional_with_placeholder('else_if_clause_list', repeat1($.else_if_clause)),
+            optional_with_placeholder('else_clause_optional', $.else_clause)
+        ),
+
+        if_clause: $ => seq(
+            'if', 
+            $.parenthesized_condition, 
+            field('consequence', $.statement)
+        ),
+
+        else_if_clause: $ => prec.dynamic(1, seq(
+            'else',
+            'if', 
+            $.parenthesized_condition, 
+            field('consequence', $.statement)
         )),
+
+        else_clause: $ => seq(
+            'else', 
+            $.statement
+        ),
 
 
         while_statement: $ => seq(
             'while',
-            field('condition', $.parenthesized_expression),
+            $.parenthesized_condition,
             field('body', $.statement)
         ),
 

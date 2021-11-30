@@ -3271,7 +3271,7 @@
         }
       ]
     },
-    "parenthesized_expression": {
+    "parenthesized_condition": {
       "type": "SEQ",
       "members": [
         {
@@ -3279,8 +3279,13 @@
           "value": "("
         },
         {
-          "type": "SYMBOL",
-          "name": "_expression"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          },
+          "named": true,
+          "value": "condition"
         },
         {
           "type": "STRING",
@@ -3919,7 +3924,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "if_statement"
+          "name": "if"
         },
         {
           "type": "SYMBOL",
@@ -4104,12 +4109,8 @@
           "value": "switch"
         },
         {
-          "type": "FIELD",
-          "name": "condition",
-          "content": {
-            "type": "SYMBOL",
-            "name": "parenthesized_expression"
-          }
+          "type": "SYMBOL",
+          "name": "parenthesized_condition"
         },
         {
           "type": "FIELD",
@@ -4205,12 +4206,8 @@
           "value": "while"
         },
         {
-          "type": "FIELD",
-          "name": "condition",
-          "content": {
-            "type": "SYMBOL",
-            "name": "parenthesized_expression"
-          }
+          "type": "SYMBOL",
+          "name": "parenthesized_condition"
         },
         {
           "type": "SYMBOL",
@@ -4568,12 +4565,8 @@
             "value": "if"
           },
           {
-            "type": "FIELD",
-            "name": "condition",
-            "content": {
-              "type": "SYMBOL",
-              "name": "parenthesized_expression"
-            }
+            "type": "SYMBOL",
+            "name": "parenthesized_condition"
           },
           {
             "type": "FIELD",
@@ -4611,23 +4604,96 @@
         ]
       }
     },
-    "if_statement": {
-      "type": "PREC_RIGHT",
-      "value": 0,
+    "if": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "if_clause"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "else_if_clause_list",
+              "content": {
+                "type": "REPEAT1",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "else_if_clause"
+                }
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "else_if_clause_list",
+              "content": {
+                "type": "BLANK"
+              }
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "else_clause_optional",
+              "content": {
+                "type": "SYMBOL",
+                "name": "else_clause"
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "else_clause_optional",
+              "content": {
+                "type": "BLANK"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "if_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parenthesized_condition"
+        },
+        {
+          "type": "FIELD",
+          "name": "consequence",
+          "content": {
+            "type": "SYMBOL",
+            "name": "statement"
+          }
+        }
+      ]
+    },
+    "else_if_clause": {
+      "type": "PREC_DYNAMIC",
+      "value": 1,
       "content": {
         "type": "SEQ",
         "members": [
           {
             "type": "STRING",
+            "value": "else"
+          },
+          {
+            "type": "STRING",
             "value": "if"
           },
           {
-            "type": "FIELD",
-            "name": "condition",
-            "content": {
-              "type": "SYMBOL",
-              "name": "parenthesized_expression"
-            }
+            "type": "SYMBOL",
+            "name": "parenthesized_condition"
           },
           {
             "type": "FIELD",
@@ -4636,34 +4702,22 @@
               "type": "SYMBOL",
               "name": "statement"
             }
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "else"
-                  },
-                  {
-                    "type": "FIELD",
-                    "name": "alternative",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "statement"
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
           }
         ]
       }
+    },
+    "else_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "else"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "statement"
+        }
+      ]
     },
     "while_statement": {
       "type": "SEQ",
@@ -4673,12 +4727,8 @@
           "value": "while"
         },
         {
-          "type": "FIELD",
-          "name": "condition",
-          "content": {
-            "type": "SYMBOL",
-            "name": "parenthesized_expression"
-          }
+          "type": "SYMBOL",
+          "name": "parenthesized_condition"
         },
         {
           "type": "FIELD",
@@ -10177,6 +10227,13 @@
     [
       "_for_loop_parts",
       "block_initializer"
+    ],
+    [
+      "if"
+    ],
+    [
+      "if_clause",
+      "else_if_clause"
     ]
   ],
   "precedences": [],
