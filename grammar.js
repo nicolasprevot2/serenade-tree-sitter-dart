@@ -712,9 +712,11 @@ module.exports = grammar({
 
         inferred_parameters: $ => seq(
             '(',
-            commaSep1($.identifier),
+            field('parameter_list', commaSep1($.inferred_parameter)),
             ')'
         ),
+
+        inferred_parameter: $ => field('parameter', $.identifier),
 
         if_null_expression: $ => prec.left( //left
             DART_PREC.If,
@@ -1195,7 +1197,7 @@ module.exports = grammar({
             $.enclosed_body,
             $.local_variable_declaration,
             $.for,
-            $.while_statement,
+            $.while,
             $.do_statement,
             $.switch,
             $.if,
@@ -1367,8 +1369,9 @@ module.exports = grammar({
             $.statement
         ),
 
+        while: $ => $.while_clause,
 
-        while_statement: $ => seq(
+        while_clause: $ => seq(
             'while',
             $.parenthesized_condition,
             field('body', $.statement)

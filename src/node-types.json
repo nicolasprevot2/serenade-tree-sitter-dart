@@ -5845,6 +5845,22 @@
     }
   },
   {
+    "type": "inferred_parameter",
+    "named": true,
+    "fields": {
+      "parameter": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "inferred_type",
     "named": true,
     "fields": {}
@@ -9250,7 +9266,7 @@
           "named": true
         },
         {
-          "type": "while_statement",
+          "type": "while",
           "named": true
         },
         {
@@ -10745,7 +10761,22 @@
     }
   },
   {
-    "type": "while_statement",
+    "type": "while",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "while_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "while_clause",
     "named": true,
     "fields": {
       "body": {

@@ -2066,35 +2066,47 @@
           "value": "("
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "identifier"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "identifier"
-                  }
-                ]
+          "type": "FIELD",
+          "name": "parameter_list",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "inferred_parameter"
+              },
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "inferred_parameter"
+                    }
+                  ]
+                }
               }
-            }
-          ]
+            ]
+          }
         },
         {
           "type": "STRING",
           "value": ")"
         }
       ]
+    },
+    "inferred_parameter": {
+      "type": "FIELD",
+      "name": "parameter",
+      "content": {
+        "type": "SYMBOL",
+        "name": "identifier"
+      }
     },
     "if_null_expression": {
       "type": "PREC_LEFT",
@@ -3912,7 +3924,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "while_statement"
+          "name": "while"
         },
         {
           "type": "SYMBOL",
@@ -4719,7 +4731,11 @@
         }
       ]
     },
-    "while_statement": {
+    "while": {
+      "type": "SYMBOL",
+      "name": "while_clause"
+    },
+    "while_clause": {
       "type": "SEQ",
       "members": [
         {
