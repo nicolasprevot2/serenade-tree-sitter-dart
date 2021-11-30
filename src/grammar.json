@@ -3075,7 +3075,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_type_not_void"
+          "name": "type_not_void"
         }
       ]
     },
@@ -3112,7 +3112,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_type_not_void"
+          "name": "type_not_void"
         }
       ]
     },
@@ -3132,7 +3132,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_type_not_void"
+          "name": "type_not_void"
         },
         {
           "type": "CHOICE",
@@ -3178,7 +3178,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_type_not_void"
+          "name": "type_not_void"
         },
         {
           "type": "CHOICE",
@@ -3897,7 +3897,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "try_statement"
+          "name": "try"
         },
         {
           "type": "SYMBOL",
@@ -4322,49 +4322,59 @@
         }
       ]
     },
-    "try_statement": {
+    "try": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_try_head"
+          "name": "try_clause"
         },
         {
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "finally_clause"
+              "type": "FIELD",
+              "name": "catch_list",
+              "content": {
+                "type": "REPEAT1",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "catch"
+                }
+              }
             },
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "REPEAT1",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "_on_part"
-                  }
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "finally_clause"
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                }
-              ]
+              "type": "FIELD",
+              "name": "catch_list",
+              "content": {
+                "type": "BLANK"
+              }
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "finally_clause_optional",
+              "content": {
+                "type": "SYMBOL",
+                "name": "finally_clause"
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "finally_clause_optional",
+              "content": {
+                "type": "BLANK"
+              }
             }
           ]
         }
       ]
     },
-    "_on_part": {
+    "catch": {
       "type": "CHOICE",
       "members": [
         {
@@ -4372,7 +4382,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "catch_clause"
+              "name": "catch_clause_inner"
             },
             {
               "type": "SYMBOL",
@@ -4389,14 +4399,14 @@
             },
             {
               "type": "SYMBOL",
-              "name": "_type_not_void"
+              "name": "type_not_void"
             },
             {
               "type": "CHOICE",
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "catch_clause"
+                  "name": "catch_clause_inner"
                 },
                 {
                   "type": "BLANK"
@@ -4411,7 +4421,7 @@
         }
       ]
     },
-    "_try_head": {
+    "try_clause": {
       "type": "SEQ",
       "members": [
         {
@@ -4428,7 +4438,7 @@
         }
       ]
     },
-    "catch_clause": {
+    "catch_clause_inner": {
       "type": "SEQ",
       "members": [
         {
@@ -5928,7 +5938,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_type_not_void"
+          "name": "type_not_void"
         }
       ]
     },
@@ -5944,7 +5954,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "_type_not_void"
+              "name": "type_not_void"
             },
             {
               "type": "CHOICE",
@@ -6017,7 +6027,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_type_not_void"
+          "name": "type_not_void"
         },
         {
           "type": "SYMBOL",
@@ -7197,7 +7207,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_factory"
+          "name": "factory_modifier"
         },
         {
           "type": "SEQ",
@@ -7247,7 +7257,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_factory"
+          "name": "factory_modifier"
         },
         {
           "type": "SEQ",
@@ -7284,7 +7294,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_type_not_void"
+          "name": "type_not_void"
         },
         {
           "type": "CHOICE",
@@ -8262,7 +8272,7 @@
         }
       ]
     },
-    "_type_not_void": {
+    "type_not_void": {
       "type": "CHOICE",
       "members": [
         {
@@ -8297,7 +8307,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_type_not_void"
+          "name": "type_not_void"
         },
         {
           "type": "REPEAT",
@@ -8310,7 +8320,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_type_not_void"
+                "name": "type_not_void"
               }
             ]
           }
@@ -9594,12 +9604,16 @@
       "type": "SYMBOL",
       "name": "_external_builtin"
     },
-    "_factory": {
+    "factory_modifier": {
       "type": "PREC",
       "value": 0,
       "content": {
-        "type": "STRING",
-        "value": "factory"
+        "type": "FIELD",
+        "name": "modifier",
+        "content": {
+          "type": "STRING",
+          "value": "factory"
+        }
       }
     },
     "_function_builtin_identifier": {
@@ -9735,10 +9749,14 @@
       }
     },
     "final_builtin": {
-      "type": "TOKEN",
+      "type": "FIELD",
+      "name": "modifier",
       "content": {
-        "type": "STRING",
-        "value": "final"
+        "type": "TOKEN",
+        "content": {
+          "type": "STRING",
+          "value": "final"
+        }
       }
     },
     "_late_builtin": {
@@ -10109,7 +10127,7 @@
       "_function_type_tail"
     ],
     [
-      "_type_not_void"
+      "type_not_void"
     ],
     [
       "_type_not_void_not_function"

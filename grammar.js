@@ -111,7 +111,7 @@ module.exports = grammar({
         [$.declaration, $._external_and_static],
         [$.method_signature, $._static_or_covariant],
         [$.constructor_signature, $._formal_parameter_part],
-        // [$._type_not_function, $._type_not_void],
+        // [$._type_not_function, $.type_not_void],
         [$._cascade_subsection],
         [$._expression],
         // [$._real_expression, $._below_relational_expression],
@@ -153,7 +153,7 @@ module.exports = grammar({
         [$.factory_constructor_signature, $.redirecting_factory_constructor_signature],
         [$._function_type_tail],
         [$._type_not_void_not_function, $._function_type_tail],
-        [$._type_not_void],
+        [$.type_not_void],
         [$._type_not_void_not_function],
         [$.function_signature], 
 
@@ -987,7 +987,7 @@ module.exports = grammar({
 
         type_test: $ => seq(
             $.is_operator,
-            $._type_not_void
+            $.type_not_void
         ),
 
         is_operator: $ => seq(
@@ -999,14 +999,14 @@ module.exports = grammar({
 
         type_cast: $ => seq(
             $.as_operator,
-            $._type_not_void
+            $.type_not_void
         ),
 
         as_operator: $ => token('as'),
 
         new_expression: $ => seq(
             $._new_builtin,
-            $._type_not_void,
+            $.type_not_void,
             optional(
                 $._dot_identifier
             ),
@@ -1022,7 +1022,7 @@ module.exports = grammar({
         ),
         const_object_expression: $ => seq(
             $.const_builtin,
-            $._type_not_void,
+            $.type_not_void,
             optional(
                 $._dot_identifier
             ),
@@ -1197,7 +1197,7 @@ module.exports = grammar({
             //TODO: add rethrow statement.
             // $._declaration,
 
-            $.try_statement,
+            $.try,
             $.break_statement,
             $.continue_statement,
             $.return_statement,
@@ -1273,30 +1273,34 @@ module.exports = grammar({
 
         throw_statement: $ => seq('throw', $._expression, $._semicolon),
 
-        try_statement: $ => seq(
-            $._try_head,
-            choice(
-                $.finally_clause,
-                seq(repeat1($._on_part), optional($.finally_clause))
-            )
+        try: $ => seq(
+            $.try_clause,
+            optional_with_placeholder('catch_list', repeat1($.catch)),
+            optional_with_placeholder('finally_clause_optional', $.finally_clause)
+
+            // choice(
+            //     $.finally_clause,
+            //     seq(repeat1($.catch), optional($.finally_clause))
+            // )
         ),
-        _on_part: $ => choice(
+
+        catch: $ => choice(
             seq(
-                $.catch_clause,
+                $.catch_clause_inner,
                 $.enclosed_body
             ),
             seq(
                 'on',
-                $._type_not_void,
-                optional($.catch_clause),
+                $.type_not_void,
+                optional($.catch_clause_inner),
                 $.enclosed_body
             )
         ),
-        _try_head: $ => seq(
+        try_clause: $ => seq(
             'try',
             field('body', $.enclosed_body),
         ),
-        catch_clause: $ => seq(
+        catch_clause_inner: $ => seq(
             'catch',
             '(',
             $.identifier,
@@ -1625,12 +1629,12 @@ module.exports = grammar({
             optional($.type_bound)
         ),
 
-        type_bound: $ => seq('extends', $._type_not_void),
+        type_bound: $ => seq('extends', $.type_not_void),
 
         superclass: $ => choice(
             seq(
                 'extends',
-                $._type_not_void,
+                $.type_not_void,
                 optional($.mixins)
             ),
             $.mixins
@@ -1650,7 +1654,7 @@ module.exports = grammar({
         ),
 
         mixin_application: $ => seq(
-            $._type_not_void,
+            $.type_not_void,
             $.mixins,
             optional($.interfaces)
         ),
@@ -1904,18 +1908,18 @@ module.exports = grammar({
         //  ),
 
         factory_constructor_signature: $ => seq(
-            $._factory,
+            $.factory_modifier,
             sep1($.identifier, '.'),
             $.formal_parameter_list,
         ),
 
         redirecting_factory_constructor_signature: $ => seq(
             optional($.const_builtin),
-            $._factory,
+            $.factory_modifier,
             sep1($.identifier, '.'),
             $.formal_parameter_list,
             '=',
-            $._type_not_void,
+            $.type_not_void,
             optional(seq('.', $.identifier)),
         ),
 
@@ -2105,7 +2109,7 @@ module.exports = grammar({
             '}'
         ),
 
-        _type_not_void: $ => choice(
+        type_not_void: $ => choice(
             seq(
                 $.function_type,
                 optional($._nullable_type)
@@ -2118,7 +2122,7 @@ module.exports = grammar({
         ),
 
         _type_not_void_list: $ => commaSep1(
-            $._type_not_void
+            $.type_not_void
         ),
 
         _type_name: $ => seq(
@@ -2461,9 +2465,9 @@ module.exports = grammar({
             'export',
         ),
         _external: $ => $._external_builtin,
-        _factory: $ => prec(
+        factory_modifier: $ => prec(
             DART_PREC.BUILTIN,
-            'factory',
+            field('modifier', 'factory'),
         ),
         _function_builtin_identifier: $ => prec(
             DART_PREC.BUILTIN,
@@ -2521,7 +2525,7 @@ module.exports = grammar({
             'new',
         ),
         const_builtin: $ => token('const'),
-        final_builtin: $ => token('final'),
+        final_builtin: $ => field('modifier', token('final')),
         _late_builtin: $ => prec(
             DART_PREC.BUILTIN,
             'late',
