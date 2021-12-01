@@ -186,7 +186,7 @@ module.exports = grammar({
         // Page 187 topLevelDefinition
         _top_level_definition: $ => choice(
             $.class_definition,
-            $.enum_declaration,
+            $.enum,
             $.extension_declaration,
             $.mixin_declaration,
             $.type_alias,
@@ -1483,7 +1483,7 @@ module.exports = grammar({
             $.import_specification,
             $.class_definition,
             // $.annotation_type_declaration,
-            $.enum_declaration,
+            $.enum,
         )),
 
        
@@ -1591,17 +1591,19 @@ module.exports = grammar({
 
         asterisk: $ => '*',
 
-        enum_declaration: $ => seq(
+        enum: $ => seq(
             'enum',
             field('name', $.identifier),
-            field('body', $.enum_body)
+            field('enclosed_body', $.enum_body)
         ),
 
         enum_body: $ => seq(
             '{',
-            commaSep1TrailingComma($.enum_constant),
+            field('enum_member_list', commaSep1TrailingComma(alias($.enum_member, $.member))),
             '}'
         ),
+
+        enum_member: $ => $.enum_constant, 
 
         enum_constant: $ => (seq(
             optional($._metadata),
@@ -1611,7 +1613,7 @@ module.exports = grammar({
         type_alias: $ => choice(
             seq($._typedef, 
                 $._type_name, 
-                optional($.type_parameters), 
+                optional($.type_parameter_list), 
                 '=', $.function_type, ';'),
 
             seq($._typedef, 
@@ -1625,9 +1627,9 @@ module.exports = grammar({
                 optional_with_placeholder('modifier_list', $.abstract_modifier),
                 'class',
                 field('name', $.identifier),
-                optional(field('type_parameters', $.type_parameters)),
+                optional(field('type_parameter_list', $.type_parameter_list)),
                 optional(field('superclass', $.superclass)),
-                optional(field('interfaces', $.interfaces)),
+                optional_with_placeholder('implements_list_optional', $.interfaces),
                 field('enclosed_body', $.class_body)
             ),
             seq(
@@ -1642,7 +1644,7 @@ module.exports = grammar({
             seq(
                 'extension',
                 optional(field('name', $.identifier)),
-                optional(field('type_parameters', $.type_parameters)),
+                optional(field('type_parameter_list', $.type_parameter_list)),
                 'on',
                 field('class', $.type),
                 field('body', $.extension_body)
@@ -1652,7 +1654,7 @@ module.exports = grammar({
         _metadata: $ => prec.right(repeat1($.annotation_)),
 
 
-        type_parameters: $ => seq(
+        type_parameter_list: $ => seq(
             '<', commaSep1($.type_parameter), '>'
         ),
 
@@ -1693,7 +1695,7 @@ module.exports = grammar({
 
         mixin_application_class: $ => seq(
             $.identifier,
-            optional($.type_parameters),
+            optional($.type_parameter_list),
             '=',
             $.mixin_application,
             $._semicolon
@@ -1702,22 +1704,25 @@ module.exports = grammar({
         mixin_application: $ => seq(
             $.type_not_void,
             $.mixins,
-            optional($.interfaces)
+            optional_with_placeholder('implements_list_optional', $.interfaces),
         ),
         mixin_declaration: $ => seq(
             $._mixin,
             $.identifier,
-            optional($.type_parameters),
+            optional($.type_parameter_list),
             optional(seq(
                 'on',
                 $.type_not_void_list
             )),
-            optional($.interfaces),
+            optional_with_placeholder('implements_list_optional', $.interfaces),
             field('enclosed_body', $.class_body)
         ),
         interfaces: $ => seq(
             $._implements,
-            $.type_not_void_list
+            $.implements_list
+        ),
+        implements_list: $ => commaSep1(
+            alias($.type_not_void, $.implements_type)
         ),
 
         interface_type_list: $ => seq(
@@ -2114,7 +2119,7 @@ module.exports = grammar({
 
         _function_type_tail: $ => seq(
             $._function_builtin_identifier,
-            optional($.type_parameters),
+            optional($.type_parameter_list),
             optional($._nullable_type),
             optional($.parameter_type_list),
             optional($._nullable_type),
@@ -2232,7 +2237,7 @@ module.exports = grammar({
 
         _method_header: $ => seq(
             optional(seq(
-                field('type_parameters', $.type_parameters),
+                field('type_parameter_list', $.type_parameter_list),
                 optional($._metadata),
             )),
             field('type', $.type),
@@ -2295,7 +2300,7 @@ module.exports = grammar({
         //     ),
 
         _formal_parameter_part: $ => seq(
-            optional($.type_parameters),
+            optional($.type_parameter_list),
             $.formal_parameter_list
         ),
 
