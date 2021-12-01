@@ -157,7 +157,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "mixin_declaration"
+          "name": "mixin"
         },
         {
           "type": "SYMBOL",
@@ -6327,7 +6327,7 @@
         }
       ]
     },
-    "mixin_declaration": {
+    "mixin": {
       "type": "SEQ",
       "members": [
         {
@@ -6354,20 +6354,33 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "on"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "type_not_void_list"
-                }
-              ]
+              "type": "FIELD",
+              "name": "on_optional",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "on"
+                  },
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "type_not_void_list"
+                    },
+                    "named": true,
+                    "value": "on_type"
+                  }
+                ]
+              }
             },
             {
-              "type": "BLANK"
+              "type": "FIELD",
+              "name": "on_optional",
+              "content": {
+                "type": "BLANK"
+              }
             }
           ]
         },

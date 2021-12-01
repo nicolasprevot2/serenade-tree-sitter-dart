@@ -7238,6 +7238,60 @@
     }
   },
   {
+    "type": "mixin",
+    "named": true,
+    "fields": {
+      "enclosed_body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "class_body",
+            "named": true
+          }
+        ]
+      },
+      "implements_list_optional": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "interfaces",
+            "named": true
+          }
+        ]
+      },
+      "on_optional": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "on",
+            "named": false
+          },
+          {
+            "type": "on_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "type_parameter_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "mixin_application",
     "named": true,
     "fields": {
@@ -7281,50 +7335,6 @@
         },
         {
           "type": "mixin_application",
-          "named": true
-        },
-        {
-          "type": "type_parameter_list",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "mixin_declaration",
-    "named": true,
-    "fields": {
-      "enclosed_body": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "class_body",
-            "named": true
-          }
-        ]
-      },
-      "implements_list_optional": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "interfaces",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "type_not_void_list",
           "named": true
         },
         {
@@ -7979,6 +7989,21 @@
     "fields": {}
   },
   {
+    "type": "on_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "type_not_void",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "operator_signature",
     "named": true,
     "fields": {},
@@ -8412,7 +8437,7 @@
             "named": false
           },
           {
-            "type": "mixin_declaration",
+            "type": "mixin",
             "named": true
           },
           {
@@ -10406,21 +10431,6 @@
         },
         {
           "type": "type_identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "type_not_void_list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "type_not_void",
           "named": true
         }
       ]

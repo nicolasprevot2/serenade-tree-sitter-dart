@@ -188,7 +188,7 @@ module.exports = grammar({
             $.class_definition,
             $.enum,
             $.extension_declaration,
-            $.mixin_declaration,
+            $.mixin,
             $.type_alias,
             seq(
                 optional($._external_builtin),
@@ -1706,14 +1706,11 @@ module.exports = grammar({
             $.mixins,
             optional_with_placeholder('implements_list_optional', $.interfaces),
         ),
-        mixin_declaration: $ => seq(
+        mixin: $ => seq(
             $._mixin,
             $.identifier,
             optional($.type_parameter_list),
-            optional(seq(
-                'on',
-                $.type_not_void_list
-            )),
+            optional_with_placeholder('on_optional', seq('on', alias($.type_not_void_list, $.on_type))),
             optional_with_placeholder('implements_list_optional', $.interfaces),
             field('enclosed_body', $.class_body)
         ),
