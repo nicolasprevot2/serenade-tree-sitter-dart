@@ -5123,6 +5123,44 @@
     }
   },
   {
+    "type": "function",
+    "named": true,
+    "fields": {
+      "decorator_list": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "annotation_",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_body",
+          "named": true
+        },
+        {
+          "type": "function_signature",
+          "named": true
+        },
+        {
+          "type": "getter_signature",
+          "named": true
+        },
+        {
+          "type": "setter_signature",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "function_body",
     "named": true,
     "fields": {
@@ -6993,19 +7031,30 @@
     }
   },
   {
+    "type": "list_elements",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "list_element",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "list_literal",
     "named": true,
     "fields": {
       "list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "list_element",
+            "type": "list_elements",
             "named": true
           }
         ]
@@ -10388,15 +10437,15 @@
           "named": true
         },
         {
+          "type": "function",
+          "named": true
+        },
+        {
           "type": "mixin",
           "named": true
         },
         {
           "type": "top_level_initialized_identifier",
-          "named": true
-        },
-        {
-          "type": "top_level_variant_definition",
           "named": true
         },
         {
@@ -10463,44 +10512,6 @@
       "types": [
         {
           "type": "initialized_identifier_list",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "top_level_variant_definition",
-    "named": true,
-    "fields": {
-      "decorator_list": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "annotation_",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "function_body",
-          "named": true
-        },
-        {
-          "type": "function_signature",
-          "named": true
-        },
-        {
-          "type": "getter_signature",
-          "named": true
-        },
-        {
-          "type": "setter_signature",
           "named": true
         }
       ]

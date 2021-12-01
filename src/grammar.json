@@ -168,8 +168,13 @@
           "name": "top_level_variant_prototypes"
         },
         {
-          "type": "SYMBOL",
-          "name": "top_level_variant_definition"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "top_level_variant_definition"
+          },
+          "named": true,
+          "value": "function"
         },
         {
           "type": "SYMBOL",
@@ -1618,67 +1623,75 @@
           "value": "["
         },
         {
-          "type": "FIELD",
-          "name": "list",
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "list",
+              "content": {
+                "type": "SYMBOL",
+                "name": "list_elements"
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "list",
+              "content": {
+                "type": "BLANK"
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "list_elements": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
           "content": {
-            "type": "CHOICE",
+            "type": "SYMBOL",
+            "name": "_element"
+          },
+          "named": true,
+          "value": "list_element"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
             "members": [
               {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "ALIAS",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "_element"
-                    },
-                    "named": true,
-                    "value": "list_element"
-                  },
-                  {
-                    "type": "REPEAT",
-                    "content": {
-                      "type": "SEQ",
-                      "members": [
-                        {
-                          "type": "STRING",
-                          "value": ","
-                        },
-                        {
-                          "type": "ALIAS",
-                          "content": {
-                            "type": "SYMBOL",
-                            "name": "_element"
-                          },
-                          "named": true,
-                          "value": "list_element"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": ","
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  }
-                ]
+                "type": "STRING",
+                "value": ","
               },
               {
-                "type": "BLANK"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_element"
+                },
+                "named": true,
+                "value": "list_element"
               }
             ]
           }
         },
         {
-          "type": "STRING",
-          "value": "]"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },

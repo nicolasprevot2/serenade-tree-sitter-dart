@@ -226,7 +226,7 @@ module.exports = grammar({
             $.mixin,
             $.type_alias,
             $.top_level_variant_prototypes, 
-            $.top_level_variant_definition, 
+            alias($.top_level_variant_definition, $.function), 
             $.top_level_variant_static_final_declaration_list, 
             $.top_level_initialized_identifier
         ),
@@ -505,9 +505,12 @@ module.exports = grammar({
 ***************************************************************************************************/
         list_literal: $ => seq(
             optional($.const_builtin), optional($.type_arguments), '[',
-            field('list', commaSepTrailingComma(alias($._element, $.list_element))),
+            optional_with_placeholder('list', $.list_elements),
             ']'
         ),
+
+        list_elements: $ => commaSep1TrailingComma(alias($._element, $.list_element)),
+
         set_or_map_literal: $ => seq(
             optional($.const_builtin), optional($.type_arguments), '{',
             commaSepTrailingComma(
