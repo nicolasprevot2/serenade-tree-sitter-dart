@@ -86,7 +86,7 @@ module.exports = grammar({
 
     inline: $ => [
         $._ambiguous_name,
-        $._class_member_definition,
+        $.class_member_definition,
     ],
 
     conflicts: $ => [
@@ -95,16 +95,16 @@ module.exports = grammar({
         [$._type_name, $._primary, $.function_signature],
         [$._primary, $._type_name],
         [$.variable_declaration, $.initialized_variable_definition, ],
-        [$._final_const_var_or_type, $.function_signature, ],
+        [$.final_const_var_or_type, $.function_signature, ],
         [$._primary, $.function_formal_parameter],
-        [$._primary, $._simple_formal_parameter],
+        [$._primary, $.simple_formal_parameter],
         [$._primary, $.labeled_statement],
         [$._primary, $._type_name, $.function_formal_parameter],
-        [$._final_const_var_or_type, $.function_formal_parameter],
+        [$.final_const_var_or_type, $.function_formal_parameter],
         [$._primary, $.constructor_param],
         [$.normal_formal_parameters],
         [$.postfix_expression],
-        [$._declared_identifier],
+        [$.declared_identifier],
         [$.equality_expression],
         [$._argument_list],
         [$.variable_declaration, $.initialized_identifier, ],
@@ -117,21 +117,21 @@ module.exports = grammar({
         // [$._real_expression, $._below_relational_expression],
         [$._postfix_expression],
         [$._top_level_definition, $.lambda],
-        [$._top_level_definition, $._final_const_var_or_type],
-        [$._top_level_definition, $.const_object_expression, $._final_const_var_or_type],
-        [$._final_const_var_or_type, $.const_object_expression],
-        [$._final_const_var_or_type],
+        [$._top_level_definition, $.final_const_var_or_type],
+        [$._top_level_definition, $.const_object_expression, $.final_const_var_or_type],
+        [$.final_const_var_or_type, $.const_object_expression],
+        [$.final_const_var_or_type],
         [$.type_parameter, $._type_name],
         [$.class_definition],
         [$.normal_formal_parameter],
         [$.library_name, $.dotted_identifier_list],
         [$._top_level_definition, $.inferred_type],
-        [$._final_const_var_or_type, $._top_level_definition, $.function_signature],
+        [$.final_const_var_or_type, $._top_level_definition, $.function_signature],
         [$._assignable_selector_part, $.selector],
         [$._assignable_selector_part, $._postfix_expression],
         [$._assignable_selector_part, $.postfix_expression],
         [$._primary, $.assignable_expression],
-        [$._simple_formal_parameter, $.assignable_expression],
+        [$.simple_formal_parameter, $.assignable_expression],
         // [$._type_name, $._primary, $.assignable_expression],
         [$.assignable_expression, $.postfix_expression],
         [$.assignable_expression, $._postfix_expression],
@@ -162,6 +162,15 @@ module.exports = grammar({
         [$.if],
         [$.if_clause, $.else_if_clause],
         [$.superclass_extends, $.superclass_mixins],
+        [$.declaration_variant_constructor_signature, $.declaration], 
+        [$.declaration_variant_constructor_signature, $.declaration, $._external_and_static], 
+        [$.method_signature_variant_static, $.declaration, $._static_or_covariant],
+        [$.declaration_variant_getter_signature, $._external],
+        [$.declaration_variant_operator_signature, $._external_and_static],
+        [$.declaration_variant_constructor_signature, $.declaration_variant_operator_signature, $._external_and_static],
+        [$.method_signature_variant_static, $.declaration_variant_function_signature, $._static_or_covariant],
+        [$.declaration_variant_static_final_declaration_list, $._static_or_covariant],
+        [$.initialized_identifier_, $.static_final_declaration],
     ],
 
     word: $ => $.identifier,
@@ -528,7 +537,7 @@ module.exports = grammar({
 ***************************************************************************************************
 ***************************************************************************************************/
         _expression: $ => choice(
-            $.assignment_expression,
+            alias($.assignment_expression, $.assignment),
             alias($.throw_expression, $.throw),
             seq(
                 $._real_expression,
@@ -536,7 +545,7 @@ module.exports = grammar({
             )
         ),
         _expression_without_cascade: $ => choice(
-            $.assignment_expression_without_cascade,
+            alias($.assignment_expression_without_cascade, $.assignment),
             $._real_expression,
             alias($.throw_expression_without_cascade, $.throw)
         ),
@@ -625,15 +634,15 @@ module.exports = grammar({
          ***************************************************************************************************/
 
         assignment_expression: $ => prec.right(DART_PREC.Assignment, seq( //right
-            field('left', $.assignable_expression),
+            field('assignment_variable', $.assignable_expression),
             field('operator', $._assignment_operator),
-            field('right', $._expression)
+            field('assignment_value', $._expression)
         )),
 
         assignment_expression_without_cascade: $ => prec.right(DART_PREC.Assignment, seq( //right
-            field('left', $.assignable_expression),
+            field('assignment_variable', $.assignable_expression),
             field('operator', $._assignment_operator),
-            field('right', $._expression_without_cascade)
+            field('assignment_value', $._expression_without_cascade)
         )),
 
         assignable_expression: $ => choice(
@@ -1198,7 +1207,7 @@ module.exports = grammar({
         // Statements
         statement: $ => choice(
             $.enclosed_body,
-            $.local_variable_declaration,
+            alias($.local_variable_declaration, $.variable_declaration),
             $.for,
             $.while,
             $.do_while,
@@ -1396,7 +1405,7 @@ module.exports = grammar({
         _for_loop_parts: $ => choice(
             seq(
                 field('block_iterator', choice(
-                    $._declared_identifier,
+                    $.declared_identifier,
                     $.identifier
                 )),
                 field('for_each_separator', 'in'),
@@ -1732,8 +1741,8 @@ module.exports = grammar({
             field('class_member_list', 
                 repeat(
                     seq(
-                        optional($._metadata),
-                        $._class_member_definition
+                        optional_with_placeholder('decorator_list', $._metadata),
+                        $.class_member_definition
                     )
                 ),
             ),
@@ -1748,7 +1757,7 @@ module.exports = grammar({
                     seq(
                         optional($._metadata),
                         seq(
-                            $.method_signature,
+                            alias($.method_signature, $.method),
                             $.function_body
                         ),
                     )
@@ -1757,13 +1766,13 @@ module.exports = grammar({
             '}'
         ),
 
-        _class_member_definition: $ => choice(
-            seq($.declaration, $._semicolon),
+        class_member_definition: $ => field('member', choice(
+            seq(alias($.declaration, $.property), $._semicolon),
             seq(
-                $.method_signature,
+                alias($.method_signature, $.method),
                 $.function_body
             ),
-        ),
+        )),
 
         getter_signature: $ => seq(
             optional($.type),
@@ -1781,79 +1790,91 @@ module.exports = grammar({
         method_signature: $ => choice(
             seq($.constructor_signature, optional($.initializers)),
             $.factory_constructor_signature,
-           
-            seq(
-                optional($._static),
-                choice(
-                    $.function_signature,
-                    $.getter_signature,
-                    $.setter_signature
-                )
-            ),
+            $.method_signature_variant_static, 
             $.operator_signature
+        ),
+
+        method_signature_variant_static: $ => seq(
+            optional_with_placeholder('modifier_list', $._static),
+            choice(
+                $.function_signature,
+                $.getter_signature,
+                $.setter_signature
+            )
+        ),
+
+        declaration_variant_factory_constructor_signature: $ => seq(
+            optional_with_placeholder('modifier_list', seq(
+                optional($._external),
+                optional($.const_builtin)
+            )),
+            $.factory_constructor_signature, 
+            optional($._native)
+        ),
+
+        declaration_variant_constructor_signature: $ => seq(
+            optional_with_placeholder('modifier_list', $._external), 
+            $.constructor_signature
+        ),
+        
+        declaration_variant_getter_signature: $ => seq(
+            optional_with_placeholder('modifier_list', 
+                optional($._external_builtin),
+                optional($._static),
+            ), 
+            $.getter_signature,
+        ),
+
+        declaration_variant_setter_signature: $ => seq(
+            optional_with_placeholder('modifier_list', $._external_and_static),
+            $.setter_signature,
+        ),
+
+        declaration_variant_operator_signature: $ => seq(
+            optional_with_placeholder('modifier_list', $._external), 
+            $.operator_signature
+        ), 
+
+        declaration_variant_function_signature: $ => seq(
+            optional_with_placeholder('modifier_list', choice(
+                $._external_and_static, $._static)),
+            $.function_signature,
+        ),
+        declaration_variant_static_final_declaration_list: $ => seq(
+            optional_with_placeholder('modifier_list', seq(
+                $._static,
+                $._final_or_const,
+            )), 
+            optional_with_placeholder('type_optional', $.type),
+            $.static_final_declaration_list
+        ),
+
+        declaration_variant_initialized_identifier_list: $ => seq(
+            optional_with_placeholder('modifier_list', 
+                seq(
+                    optional($._static_or_covariant), 
+                    optional($._late_builtin),
+                    optional($.final_builtin)
+                ),
+            ),
+            optional_with_placeholder('type_optional', 
+                choice($.type, $.inferred_type)
+            ),
+            $.initialized_identifier_list
         ),
 
         declaration: $ => choice(
             seq($.constant_constructor_signature, optional(choice($.redirection, $.initializers))),
             seq($.constructor_signature, optional(choice($.redirection, $.initializers))),
-            seq($._external,
-                optional($.const_builtin),
-                $.factory_constructor_signature
-            ),
-            seq(
-                optional($.const_builtin),
-                $.factory_constructor_signature, $._native
-            ),
-            seq($._external,
-                $.constant_constructor_signature
-            ),
+            $.declaration_variant_factory_constructor_signature, 
             $.redirecting_factory_constructor_signature,
-            seq($._external,
-                $.constructor_signature
-            ),
-            seq(
-                optional($._external_builtin),
-                optional($._static),
-                $.getter_signature,
-            ),
-            seq(
-                optional($._external_and_static),
-                $.setter_signature,
-            ),
-            
-            seq(
-                optional($._external),
-                $.operator_signature
-            ),
-            seq(
-                optional($._external_and_static),
-                $.function_signature,
-            ),
-            // TODO: This should only work with native?
-            seq(
-                $._static,
-                $.function_signature,
-            ),
-            seq(
-                $._static,
-                $._final_or_const,
-                optional($.type),
-                $.static_final_declaration_list
-            ),
-            seq(
-                optional($._late_builtin), $.final_builtin,
-                optional($.type),
-                $.initialized_identifier_list
-            ),
-            seq(
-                optional($._static_or_covariant),
-                optional($._late_builtin),
-                choice(
-                    $.type,
-                    $.inferred_type
-                ),
-                $.initialized_identifier_list
-            )
+            $.declaration_variant_constructor_signature, 
+            $.declaration_variant_getter_signature, 
+            $.declaration_variant_setter_signature, 
+            $.declaration_variant_operator_signature,
+            $.declaration_variant_function_signature,
+            $.declaration_variant_static_final_declaration_list, 
+            $.declaration_variant_initialized_identifier_list,
         //    TODO: add in the 'late' keyword from the informal draft spec:
         //    |static late final〈type〉?〈initializedIdentifierList〉
         //    |static late?〈varOrType〉 〈initializedIdentifierList〉
@@ -1861,16 +1882,21 @@ module.exports = grammar({
         //    |late?final〈type〉?〈initializedIdentifierList〉
         //    |late?〈varOrType〉 〈initializedIdentifierList〉
         ),
+
         initialized_identifier_list: $ => commaSep1(
             $.initialized_identifier
         ),
-        initialized_identifier: $ => seq(
-            $.identifier,
-            optional(seq(
+        initialized_identifier: $ => field('assignment', $.initialized_identifier_),
+
+        initialized_identifier_: $ => seq(
+            field('assignment_variable', $.identifier),
+            optional_with_placeholder('assignment_value_list_optional', 
+            seq(
                 '=',
-                $._expression
+                alias($._expression, $.assignment_variable)
             ))
         ),
+
         static_final_declaration_list: $ => commaSep1(
             $.static_final_declaration
         ),
@@ -1991,7 +2017,10 @@ module.exports = grammar({
             field('parameters', $.formal_parameter_list)
         ),
         constant_constructor_signature: $ => seq(
-            $.const_builtin,
+            field('modifier_list', seq(
+                optional($._external), 
+                $.const_builtin,
+            )),
             $.qualified,
             $.formal_parameter_list
         ),
@@ -2032,36 +2061,52 @@ module.exports = grammar({
         ),
 
         variable_declaration: $ => seq(
-            $._declared_identifier,
+            $.declared_identifier,
             optional(seq(
                 ',',
                 commaSep1($.identifier)
             ))
         ),
 
-        initialized_variable_definition: $ => seq(
-            $._declared_identifier,
-            optional(seq(
-                prec(DART_PREC.BUILTIN, '='),
-                field('value', $._expression)
-            )),
+        initialized_variable_definition: $ => field('assignment_list', seq(
+            alias($.first_initialized_variable, $.assignment),
+            // $.declared_identifier,
+            // optional_with_placeholder(
+            //     'assignment_value',
+            //     seq(
+            //         prec(DART_PREC.BUILTIN, '='),
+            //         field('value', $._expression)
+            //     )
+            // ),
             repeat(seq(',', $.initialized_identifier))
+        )),
+
+        first_initialized_variable: $ => seq(
+            $.declared_identifier,
+            optional_with_placeholder(
+                'assignment_value_list_optional',
+                seq(
+                    prec(DART_PREC.BUILTIN, '='),
+                    alias($._expression, $.assignment_value)
+                )
+            )
         ),
+
         // initialized_identifier: $ => seq(
         //   $.identifier,
         //   optional(seq('=', $._expression))
         // ),
 
-        _declared_identifier: $ => seq(
-            optional($._metadata),
+        declared_identifier: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata),
             optional_with_placeholder('modifier_list', $.covariant_modifier),
-            $._final_const_var_or_type,
-            field('name', $.identifier)
+            field('type_optional', alias($.final_const_var_or_type, $.type)),
+            field('assignment_variable', $.identifier)
         ),
 
         // Types
 
-        _final_const_var_or_type: $ => choice(
+        final_const_var_or_type: $ => choice(
             seq(optional($._late_builtin), $.final_builtin, optional($.type)),
             seq($.const_builtin, optional(
                 $.type
@@ -2384,12 +2429,10 @@ module.exports = grammar({
         // ),
 
         normal_formal_parameter: $ => seq(
-            optional(
-                $._metadata
-            ),
+            optional_with_placeholder('decorator_list', $._metadata),
             choice(
                 $.function_formal_parameter,
-                $._simple_formal_parameter,
+                $.simple_formal_parameter,
                 $.constructor_param
                 // $.field_formal_parameter
             )
@@ -2403,8 +2446,8 @@ module.exports = grammar({
             optional($._nullable_type)
         ),
 
-        _simple_formal_parameter: $ => choice(
-            $._declared_identifier,
+        simple_formal_parameter: $ => choice(
+            $.declared_identifier,
             seq(
                 optional_with_placeholder('modifier_list', $.covariant_modifier),
                 $.identifier
@@ -2413,7 +2456,7 @@ module.exports = grammar({
         //constructor param = field formal parameter
         constructor_param: $ => field('identifier', 
             seq(
-                optional($._final_const_var_or_type),
+                optional($.final_const_var_or_type),
                 $.this,
                 '.',
                 $.identifier,
@@ -2432,7 +2475,7 @@ module.exports = grammar({
             optional($._metadata),
             $.type,
             '...',
-            $._declared_identifier
+            $.declared_identifier
         ),
 
         throws: $ => seq(
@@ -2562,7 +2605,7 @@ module.exports = grammar({
         ),
         _static: $ => prec(
             DART_PREC.BUILTIN,
-            'static',
+            field('modifier', 'static'),
         ),
         _typedef: $ => prec(
             DART_PREC.BUILTIN,
@@ -2572,7 +2615,7 @@ module.exports = grammar({
             DART_PREC.BUILTIN,
             'new',
         ),
-        const_builtin: $ => token('const'),
+        const_builtin: $ => field('modifier', token('const')),
         final_builtin: $ => field('modifier', token('final')),
         _late_builtin: $ => prec(
             DART_PREC.BUILTIN,
@@ -2580,7 +2623,7 @@ module.exports = grammar({
         ),
         _external_builtin: $ => prec(
             DART_PREC.BUILTIN,
-            'external',
+            field('modifier', 'external'),
         ),
         // _open_arrow_builtin: $ => token(
         //     '<'
