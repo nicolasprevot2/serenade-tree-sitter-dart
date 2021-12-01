@@ -161,6 +161,7 @@ module.exports = grammar({
         [$._for_loop_parts, $.block_initializer],
         [$.if],
         [$.if_clause, $.else_if_clause],
+        [$.superclass_extends, $.superclass_mixins],
     ],
 
     word: $ => $.identifier,
@@ -175,9 +176,11 @@ module.exports = grammar({
             repeat($.part_directive),
             repeat($.part_of_directive),
             // The precedence here is to make sure that this rule is matched before any of the statement rules are matched for testing.
-            repeat(prec.dynamic(22, seq(optional($._metadata), $._top_level_definition))),
+            optional_with_placeholder("type_declaration_list", 
+                repeat1(prec.dynamic(22, seq(optional($._metadata), $._top_level_definition)))
+            ),
             //for testing:
-            repeat($.statement)
+            optional_with_placeholder("statement_list", repeat($.statement))
         ),
 
         // Page 187 topLevelDefinition
@@ -1665,17 +1668,27 @@ module.exports = grammar({
         type_bound: $ => seq('extends', $.type_not_void),
 
         superclass: $ => choice(
-            seq(
-                'extends',
-                $.type_not_void,
-                optional($.mixins)
-            ),
-            $.mixins
+            $.superclass_extends, 
+            $.superclass_mixins
+        ), 
+        superclass_extends: $ => seq(
+            field('extends_optional', 
+                seq('extends', alias($.type_not_void, $.extends_type))), 
+            optional_with_placeholder("mixin_list_optional", $.mixins)
+        ), 
+        superclass_mixins: $ => seq(
+            optional_with_placeholder('extends_optional', 
+                seq('extends', alias($.type_not_void, $.extends_type))), 
+            field('mixin_list_optional', $.mixins)
         ),
-
+        
         mixins: $ => seq(
             'with',
-            $._type_not_void_list
+            $.mixin_list
+        ),
+
+        mixin_list: $ => commaSep1(
+            alias($.type_not_void, $.mixin_type)
         ),
 
         mixin_application_class: $ => seq(
@@ -1697,14 +1710,14 @@ module.exports = grammar({
             optional($.type_parameters),
             optional(seq(
                 'on',
-                $._type_not_void_list
+                $.type_not_void_list
             )),
             optional($.interfaces),
             field('enclosed_body', $.class_body)
         ),
         interfaces: $ => seq(
             $._implements,
-            $._type_not_void_list
+            $.type_not_void_list
         ),
 
         interface_type_list: $ => seq(
@@ -2154,7 +2167,7 @@ module.exports = grammar({
             // $.generic_type
         ),
 
-        _type_not_void_list: $ => commaSep1(
+        type_not_void_list: $ => commaSep1(
             $.type_not_void
         ),
 

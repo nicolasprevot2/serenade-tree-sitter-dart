@@ -3735,6 +3735,29 @@
     }
   },
   {
+    "type": "extends_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "function_type",
+          "named": true
+        },
+        {
+          "type": "type_arguments",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "extension_body",
     "named": true,
     "fields": {},
@@ -6218,11 +6241,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "type_not_void",
+          "type": "type_not_void_list",
           "named": true
         }
       ]
@@ -7230,7 +7253,7 @@
           "named": true
         },
         {
-          "type": "type_not_void",
+          "type": "type_not_void_list",
           "named": true
         },
         {
@@ -7241,7 +7264,7 @@
     }
   },
   {
-    "type": "mixins",
+    "type": "mixin_list",
     "named": true,
     "fields": {},
     "children": {
@@ -7249,7 +7272,45 @@
       "required": true,
       "types": [
         {
-          "type": "type_not_void",
+          "type": "mixin_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mixin_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "function_type",
+          "named": true
+        },
+        {
+          "type": "type_arguments",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mixins",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "mixin_list",
           "named": true
         }
       ]
@@ -8208,6 +8269,98 @@
             "named": true
           }
         ]
+      },
+      "statement_list": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "statement",
+            "named": true
+          }
+        ]
+      },
+      "type_declaration_list": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ";",
+            "named": false
+          },
+          {
+            "type": "annotation_",
+            "named": true
+          },
+          {
+            "type": "class_definition",
+            "named": true
+          },
+          {
+            "type": "const_builtin",
+            "named": true
+          },
+          {
+            "type": "enum_declaration",
+            "named": true
+          },
+          {
+            "type": "extension_declaration",
+            "named": true
+          },
+          {
+            "type": "external",
+            "named": false
+          },
+          {
+            "type": "final_builtin",
+            "named": true
+          },
+          {
+            "type": "function_body",
+            "named": true
+          },
+          {
+            "type": "function_signature",
+            "named": true
+          },
+          {
+            "type": "getter_signature",
+            "named": true
+          },
+          {
+            "type": "inferred_type",
+            "named": true
+          },
+          {
+            "type": "initialized_identifier_list",
+            "named": true
+          },
+          {
+            "type": "late",
+            "named": false
+          },
+          {
+            "type": "mixin_declaration",
+            "named": true
+          },
+          {
+            "type": "setter_signature",
+            "named": true
+          },
+          {
+            "type": "static_final_declaration_list",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          },
+          {
+            "type": "type_alias",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
@@ -8215,55 +8368,7 @@
       "required": false,
       "types": [
         {
-          "type": "annotation_",
-          "named": true
-        },
-        {
-          "type": "class_definition",
-          "named": true
-        },
-        {
-          "type": "const_builtin",
-          "named": true
-        },
-        {
-          "type": "enum_declaration",
-          "named": true
-        },
-        {
-          "type": "extension_declaration",
-          "named": true
-        },
-        {
-          "type": "final_builtin",
-          "named": true
-        },
-        {
-          "type": "function_body",
-          "named": true
-        },
-        {
-          "type": "function_signature",
-          "named": true
-        },
-        {
-          "type": "getter_signature",
-          "named": true
-        },
-        {
-          "type": "inferred_type",
-          "named": true
-        },
-        {
-          "type": "initialized_identifier_list",
-          "named": true
-        },
-        {
           "type": "library_name",
-          "named": true
-        },
-        {
-          "type": "mixin_declaration",
           "named": true
         },
         {
@@ -8276,26 +8381,6 @@
         },
         {
           "type": "script_tag",
-          "named": true
-        },
-        {
-          "type": "setter_signature",
-          "named": true
-        },
-        {
-          "type": "statement",
-          "named": true
-        },
-        {
-          "type": "static_final_declaration_list",
-          "named": true
-        },
-        {
-          "type": "type",
-          "named": true
-        },
-        {
-          "type": "type_alias",
           "named": true
         }
       ]
@@ -9401,18 +9486,78 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "mixins",
+          "type": "superclass_extends",
           "named": true
         },
         {
-          "type": "type_not_void",
+          "type": "superclass_mixins",
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "superclass_extends",
+    "named": true,
+    "fields": {
+      "extends_optional": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "extends",
+            "named": false
+          },
+          {
+            "type": "extends_type",
+            "named": true
+          }
+        ]
+      },
+      "mixin_list_optional": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "mixins",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "superclass_mixins",
+    "named": true,
+    "fields": {
+      "extends_optional": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "extends",
+            "named": false
+          },
+          {
+            "type": "extends_type",
+            "named": true
+          }
+        ]
+      },
+      "mixin_list_optional": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "mixins",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -10190,6 +10335,21 @@
         },
         {
           "type": "type_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_not_void_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "type_not_void",
           "named": true
         }
       ]
