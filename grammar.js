@@ -86,7 +86,6 @@ module.exports = grammar({
 
     inline: $ => [
         $._ambiguous_name,
-        $.class_member_definition,
     ],
 
     conflicts: $ => [
@@ -171,6 +170,28 @@ module.exports = grammar({
         [$.method_signature_variant_static, $.declaration_variant_function_signature, $._static_or_covariant],
         [$.declaration_variant_static_final_declaration_list, $._static_or_covariant],
         [$.initialized_identifier_, $.static_final_declaration],
+        [$.assignable_expression, $.initialized_identifier_, $.static_final_declaration],
+        [$._primary, $.initialized_identifier_],
+        [$.top_level_variant_static_final_declaration_list, $.top_level_initialized_identifier, $.final_const_var_or_type, $.function_signature],
+        [$.top_level_initialized_identifier, $.final_const_var_or_type],
+        [$.top_level_variant_static_final_declaration_list, $.const_object_expression, $.final_const_var_or_type],
+        [$.top_level_variant_static_final_declaration_list, $.top_level_initialized_identifier, $.final_const_var_or_type],
+        [$.top_level_variant_static_final_declaration_list, $.final_const_var_or_type],
+        [$.top_level_variant_definition, $.lambda],
+        // [$.top_level_variant_definition],
+        // [$.top_level_variant_prototypes],
+        // [$.top_level_initialized_identifier],
+        // [$.top_level_variant_static_final_declaration_list],
+        // [$.enum], 
+        // 4:  Add a conflict for these rules: `top_level_variant_static_final_declaration_list`, `final_const_var_or_type`
+
+        // `top_level_variant_static_final_declaration_list`, ``, `final_const_var_or_type`
+        // e rules: `top_level_variant_static_final_declaration_list`, ``, `final_const_var_or_type`
+        // ``, ``, ``, ``
+
+
+        // ``, `initialized_identifier_`, `static_final_declaration`
+
     ],
 
     word: $ => $.identifier,
@@ -186,10 +207,15 @@ module.exports = grammar({
             repeat($.part_of_directive),
             // The precedence here is to make sure that this rule is matched before any of the statement rules are matched for testing.
             optional_with_placeholder("type_declaration_list", 
-                repeat1(prec.dynamic(22, seq(optional($._metadata), $._top_level_definition)))
+                repeat1(prec.dynamic(22, $.top_level_definition))
             ),
             //for testing:
             optional_with_placeholder("statement_list", repeat($.statement))
+        ),
+
+        top_level_definition: $ => field('statement', $.top_level_definition_),
+        top_level_definition_: $ => seq(
+            $._top_level_definition
         ),
 
         // Page 187 topLevelDefinition
@@ -199,65 +225,54 @@ module.exports = grammar({
             $.extension_declaration,
             $.mixin,
             $.type_alias,
-            seq(
-                optional($._external_builtin),
-                $.function_signature,
-                $._semicolon
-            ),
-            seq(
-                optional($._external_builtin),
-                $.getter_signature,
-                $._semicolon
-            ),
-            seq(
-                optional($._external_builtin),
-                $.setter_signature,
-                $._semicolon
-            ),
-     
-            seq(
-                $.function_signature,
-                $.function_body
-            ),
-            seq(
-                $.getter_signature,
-                // optional($.type),
-                // $._get,
-                // $.identifier,
-                $.function_body
-            ),
-            seq(
-                $.setter_signature,
-                // optional($.type),
-                // $._set,
-                // $.identifier,
-                // $.formal_parameter_list,
-                $.function_body
-            ),
+            $.top_level_variant_prototypes, 
+            $.top_level_variant_definition, 
+            $.top_level_variant_static_final_declaration_list, 
+            $.top_level_initialized_identifier
+        ),
 
-            //    final or const static final declaration list            
-            seq(
-                choice(
-                    $.final_builtin,
-                    $.const_builtin
-                ),
-                optional($.type),
-                $.static_final_declaration_list,
-                $._semicolon
-            ),
-            seq(
-                $._late_builtin,
+        top_level_variant_definition: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata), 
+            choice(
+                $.function_signature, 
+                $.getter_signature, 
+                $.setter_signature
+            ), 
+            $.function_body
+        ), 
+        top_level_variant_static_final_declaration_list: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata), 
+            optional_with_placeholder('modifier_list', choice(
                 $.final_builtin,
-                optional($.type),
-                $.initialized_identifier_list,
-                $._semicolon
-            ),
-            seq(
+                $.const_builtin
+            )),
+            optional_with_placeholder('type_optional', 
+                $.type
+            ), 
+            $.static_final_declaration_list,
+            $._semicolon
+        ),
+
+        top_level_initialized_identifier: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata), 
+            optional_with_placeholder('modifier_list', seq(
                 optional($._late_builtin),
-                choice($.type, $.inferred_type),
-                $.initialized_identifier_list,
-                $._semicolon
-            )
+                optional($.final_builtin)
+            )),
+            optional_with_placeholder('type_optional', choice($.type, $.inferred_type)),
+            $.initialized_identifier_list,
+            $._semicolon
+        ),
+
+        top_level_variant_prototypes: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata), 
+            optional_with_placeholder('modifier_list', $._external_builtin), 
+            choice(
+                $.function_signature, 
+                $.getter_signature, 
+                $.setter_signature
+            ), 
+            $._semicolon
         ),
         
 /**************************************************************************************************
@@ -1601,6 +1616,7 @@ module.exports = grammar({
         asterisk: $ => '*',
 
         enum: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata), 
             'enum',
             field('name', $.identifier),
             field('enclosed_body', $.enum_body)
@@ -1619,45 +1635,45 @@ module.exports = grammar({
             field('name', $.identifier),
         )),
 
-        type_alias: $ => choice(
-            seq($._typedef, 
-                $._type_name, 
-                optional($.type_parameter_list), 
-                '=', $.function_type, ';'),
-
-            seq($._typedef, 
-                optional($.type), 
-                $._type_name, 
-                $._formal_parameter_part, ';'),
+        type_alias: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata), 
+            $._typedef, 
+            choice(
+                seq(
+                    $._type_name, 
+                    optional($.type_parameter_list), 
+                    '=', $.function_type, ';'),
+                seq(
+                    optional($.type), 
+                    $._type_name, 
+                    $._formal_parameter_part, ';'),
+            ), 
         ),
 
-        class_definition: $ => choice(
-            seq(
-                optional_with_placeholder('modifier_list', $.abstract_modifier),
-                'class',
-                field('name', $.identifier),
-                optional(field('type_parameter_list', $.type_parameter_list)),
-                optional(field('superclass', $.superclass)),
-                optional_with_placeholder('implements_list_optional', $.interfaces),
-                field('enclosed_body', $.class_body)
-            ),
-            seq(
-                optional($._metadata),
-                optional_with_placeholder('modifier_list', $.abstract_modifier),
-                'class',
+        class_definition: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata), 
+            optional_with_placeholder('modifier_list', $.abstract_modifier),
+            'class', 
+            choice(
+                seq(
+                    field('name', $.identifier),
+                    optional(field('type_parameter_list', $.type_parameter_list)),
+                    optional(field('superclass', $.superclass)),
+                    optional_with_placeholder('implements_list_optional', $.interfaces),
+                    field('enclosed_body', $.class_body)
+                ),
                 $.mixin_application_class
             )
         ),
 
-        extension_declaration: $ => choice(
-            seq(
-                'extension',
-                optional(field('name', $.identifier)),
-                optional(field('type_parameter_list', $.type_parameter_list)),
-                'on',
-                field('class', $.type),
-                field('body', $.extension_body)
-            ),
+        extension_declaration: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata), 
+            'extension',
+            optional(field('name', $.identifier)),
+            optional(field('type_parameter_list', $.type_parameter_list)),
+            'on',
+            field('class', $.type),
+            field('body', $.extension_body)
         ),
 
         _metadata: $ => prec.right(repeat1($.annotation_)),
@@ -1716,6 +1732,7 @@ module.exports = grammar({
             optional_with_placeholder('implements_list_optional', $.interfaces),
         ),
         mixin: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata), 
             $._mixin,
             $.identifier,
             optional($.type_parameter_list),
@@ -1738,15 +1755,25 @@ module.exports = grammar({
 
         class_body: $ => seq(
             '{',
-            field('class_member_list', 
-                repeat(
-                    seq(
-                        optional_with_placeholder('decorator_list', $._metadata),
-                        $.class_member_definition
-                    )
-                ),
-            ),
+            optional_with_placeholder('class_member_list', repeat(alias($.class_member, $.member))), 
             '}'
+        ),
+
+        class_member: $ => choice(
+            $.property, 
+            $.method
+        ),
+
+        property: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata),
+            $.declaration,
+            $._semicolon
+        ),
+
+        method: $ => seq(
+            optional_with_placeholder('decorator_list', $._metadata),
+            $.method_signature, 
+            $.function_body
         ),
 
         extension_body: $ => seq(
@@ -1766,13 +1793,8 @@ module.exports = grammar({
             '}'
         ),
 
-        class_member_definition: $ => field('member', choice(
-            seq(alias($.declaration, $.property), $._semicolon),
-            seq(
-                alias($.method_signature, $.method),
-                $.function_body
-            ),
-        )),
+
+        
 
         getter_signature: $ => seq(
             optional($.type),
