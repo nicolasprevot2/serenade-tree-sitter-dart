@@ -160,7 +160,7 @@ module.exports = grammar({
         [$._for_loop_parts, $.block_initializer],
         [$.if],
         [$.if_clause, $.else_if_clause],
-        [$.superclass_extends, $.superclass_mixins],
+        // [$.superclass_extends, $.superclass_mixins],
         [$.declaration_variant_constructor_signature, $.declaration], 
         [$.declaration_variant_constructor_signature, $.declaration, $._external_and_static], 
         [$.method_signature_variant_static, $.declaration, $._static_or_covariant],
@@ -1653,6 +1653,21 @@ module.exports = grammar({
             ), 
         ),
 
+        // superclass: $ => choice(
+        //     $.superclass_extends, 
+        //     $.superclass_mixins
+        // ), 
+        // superclass_extends: $ => seq(
+        //     field('extends_optional', 
+        //         seq('extends', alias($.type_not_void, $.extends_type))), 
+            
+        // ), 
+        // superclass_mixins: $ => seq(
+            
+        //     field('mixin_list_optional', $.mixins)
+        // ),
+    
+
         class_definition: $ => seq(
             optional_with_placeholder('decorator_list', $._metadata), 
             optional_with_placeholder('modifier_list', $.abstract_modifier),
@@ -1661,7 +1676,10 @@ module.exports = grammar({
                 seq(
                     field('name', $.identifier),
                     optional(field('type_parameter_list', $.type_parameter_list)),
-                    optional(field('superclass', $.superclass)),
+                    optional_with_placeholder('extends_optional', 
+                        seq('extends', alias($.type_not_void, $.extends_type))), 
+                    optional_with_placeholder("mixin_list_optional", $.mixins), 
+                    // optional(field('superclass', $.superclass)),
                     optional_with_placeholder('implements_list_optional', $.interfaces),
                     field('enclosed_body', $.class_body)
                 ),
@@ -1697,21 +1715,6 @@ module.exports = grammar({
 
         type_bound: $ => seq('extends', $.type_not_void),
 
-        superclass: $ => choice(
-            $.superclass_extends, 
-            $.superclass_mixins
-        ), 
-        superclass_extends: $ => seq(
-            field('extends_optional', 
-                seq('extends', alias($.type_not_void, $.extends_type))), 
-            optional_with_placeholder("mixin_list_optional", $.mixins)
-        ), 
-        superclass_mixins: $ => seq(
-            optional_with_placeholder('extends_optional', 
-                seq('extends', alias($.type_not_void, $.extends_type))), 
-            field('mixin_list_optional', $.mixins)
-        ),
-        
         mixins: $ => seq(
             'with',
             $.mixin_list
@@ -2323,14 +2326,15 @@ module.exports = grammar({
             optional_with_placeholder('modifier_list', $.async_modifier_choice),
             $.enclosed_body
         ),
+        function_arrow_variant: $ => seq(
+            optional_with_placeholder('modifier_list', $.async_modifier),
+            '=>',
+            $._expression,
+            $._semicolon
+        ),
 
         function_body: $ => choice(
-            seq(
-                optional_with_placeholder('modifier_list', $.async_modifier),
-                '=>',
-                $._expression,
-                $._semicolon
-            ),
+            $.function_arrow_variant,
             $.function_non_arrow_variant
         ),
         function_expression_body: $ => choice(
@@ -2371,13 +2375,14 @@ module.exports = grammar({
             $.formal_parameter_list
         ),
 
-        
         formal_parameter_list: $ => $._strict_formal_parameter_list,
 
         _strict_formal_parameter_list: $ => seq(
             '(', 
-            optional_with_placeholder('parameter_list', $.normal_formal_parameters), 
-            optional(','), 
+            optional_with_placeholder('parameter_list', seq(
+                $.normal_formal_parameters,
+                optional(','), 
+            )), 
             optional_with_placeholder('named_parameter_list_optional', $.named_formal_parameters),
             optional_with_placeholder('positional_parameter_list_optional', $.optional_postional_formal_parameters),
             ')'
