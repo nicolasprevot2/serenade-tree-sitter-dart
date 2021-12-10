@@ -32,10 +32,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -48,15 +44,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -64,19 +52,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -92,19 +68,7 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
           "named": true
         },
         {
@@ -116,14 +80,6 @@
           "named": true
         },
         {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
           "type": "type_cast_expression",
           "named": true
         },
@@ -132,11 +88,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -196,119 +148,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "expression_",
           "named": true
         }
       ]
@@ -386,115 +230,11 @@
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
+          "type": "assert_builtin_",
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "expression_",
           "named": true
         }
       ]
@@ -509,35 +249,7 @@
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_assignable_selector",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
           "named": true
         },
         {
@@ -549,7 +261,7 @@
           "named": true
         },
         {
-          "type": "equality_expression",
+          "type": "expression_",
           "named": true
         },
         {
@@ -561,23 +273,7 @@
           "named": true
         },
         {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
           "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
           "named": true
         },
         {
@@ -585,19 +281,7 @@
           "named": true
         },
         {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
           "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
           "named": true
         },
         {
@@ -606,22 +290,6 @@
         },
         {
           "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
           "named": true
         },
         {
@@ -636,17 +304,9 @@
     "named": true,
     "fields": {
       "assignment_value": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
           {
             "type": "additive_expression",
             "named": true
@@ -668,15 +328,7 @@
             "named": true
           },
           {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
             "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
             "named": true
           },
           {
@@ -684,19 +336,11 @@
             "named": true
           },
           {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
+            "type": "expression_",
             "named": true
           },
           {
             "type": "if_null_expression",
-            "named": true
-          },
-          {
-            "type": "literal",
             "named": true
           },
           {
@@ -712,31 +356,11 @@
             "named": true
           },
           {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
             "type": "relational_expression",
             "named": true
           },
           {
-            "type": "selector",
-            "named": true
-          },
-          {
             "type": "shift_expression",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
             "named": true
           },
           {
@@ -752,11 +376,7 @@
             "named": true
           },
           {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
+            "type": "unary_expression_",
             "named": true
           }
         ]
@@ -888,27 +508,11 @@
           "named": true
         },
         {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
           "type": "equality_expression",
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -924,31 +528,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
           "named": true
         },
         {
@@ -964,11 +548,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -1011,27 +591,11 @@
           "named": true
         },
         {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
           "type": "equality_expression",
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -1047,31 +611,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
           "named": true
         },
         {
@@ -1087,11 +631,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -1142,119 +682,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -1304,10 +736,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -1320,15 +748,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -1336,19 +756,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -1364,19 +772,7 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
           "named": true
         },
         {
@@ -1388,14 +784,6 @@
           "named": true
         },
         {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
           "type": "type_cast_expression",
           "named": true
         },
@@ -1404,11 +792,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -1432,10 +816,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -1448,15 +828,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -1464,19 +836,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -1492,19 +852,7 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
           "named": true
         },
         {
@@ -1516,14 +864,6 @@
           "named": true
         },
         {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
           "type": "type_cast_expression",
           "named": true
         },
@@ -1532,11 +872,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -1555,10 +891,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -1571,15 +903,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -1587,19 +911,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -1615,19 +927,7 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
           "named": true
         },
         {
@@ -1639,14 +939,6 @@
           "named": true
         },
         {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
           "type": "type_cast_expression",
           "named": true
         },
@@ -1655,11 +947,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -1668,137 +956,20 @@
   {
     "type": "block_initializer",
     "named": true,
-    "fields": {
-      "init": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
-            "named": true
-          },
-          {
-            "type": "bitwise_and_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_or_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_xor_expression",
-            "named": true
-          },
-          {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
-            "named": true
-          },
-          {
-            "type": "equality_expression",
-            "named": true
-          },
-          {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_null_expression",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "local_variable_declaration",
-            "named": true
-          },
-          {
-            "type": "logical_and_expression",
-            "named": true
-          },
-          {
-            "type": "logical_or_expression",
-            "named": true
-          },
-          {
-            "type": "multiplicative_expression",
-            "named": true
-          },
-          {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
-            "type": "relational_expression",
-            "named": true
-          },
-          {
-            "type": "selector",
-            "named": true
-          },
-          {
-            "type": "shift_expression",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          },
-          {
-            "type": "throw",
-            "named": true
-          },
-          {
-            "type": "type_cast_expression",
-            "named": true
-          },
-          {
-            "type": "type_test_expression",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "expression_",
+          "named": true
+        },
+        {
+          "type": "local_variable_declaration",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1810,115 +981,7 @@
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "expression_",
           "named": true
         }
       ]
@@ -1929,9 +992,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "break_builtin_",
+          "named": true
+        },
         {
           "type": "identifier",
           "named": true
@@ -1972,10 +1039,6 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "cascade_selector",
           "named": true
         },
@@ -1988,27 +1051,11 @@
           "named": true
         },
         {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
           "type": "equality_expression",
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -2024,31 +1071,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
           "named": true
         },
         {
@@ -2064,7 +1091,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
+          "type": "unary_expression_",
           "named": true
         },
         {
@@ -2079,119 +1106,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
+          "type": "expression_",
           "named": true
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
           "named": true
         }
       ]
@@ -2256,11 +1179,11 @@
     "named": true,
     "fields": {
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -2403,27 +1326,11 @@
           "named": true
         },
         {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
           "type": "equality_expression",
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -2439,31 +1346,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
           "named": true
         },
         {
@@ -2479,11 +1366,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -2509,17 +1392,9 @@
     "named": true,
     "fields": {
       "alternative": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
           {
             "type": "additive_expression",
             "named": true
@@ -2541,15 +1416,7 @@
             "named": true
           },
           {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
             "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
             "named": true
           },
           {
@@ -2557,19 +1424,7 @@
             "named": true
           },
           {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_null_expression",
-            "named": true
-          },
-          {
-            "type": "literal",
             "named": true
           },
           {
@@ -2585,31 +1440,11 @@
             "named": true
           },
           {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
             "type": "relational_expression",
             "named": true
           },
           {
-            "type": "selector",
-            "named": true
-          },
-          {
             "type": "shift_expression",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
             "named": true
           },
           {
@@ -2625,27 +1460,15 @@
             "named": true
           },
           {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
+            "type": "unary_expression_",
             "named": true
           }
         ]
       },
       "consequence": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
           {
             "type": "additive_expression",
             "named": true
@@ -2667,15 +1490,7 @@
             "named": true
           },
           {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
             "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
             "named": true
           },
           {
@@ -2683,19 +1498,7 @@
             "named": true
           },
           {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_null_expression",
-            "named": true
-          },
-          {
-            "type": "literal",
             "named": true
           },
           {
@@ -2711,31 +1514,11 @@
             "named": true
           },
           {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
             "type": "relational_expression",
             "named": true
           },
           {
-            "type": "selector",
-            "named": true
-          },
-          {
             "type": "shift_expression",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
             "named": true
           },
           {
@@ -2751,26 +1534,18 @@
             "named": true
           },
           {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
+            "type": "unary_expression_",
             "named": true
           }
         ]
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
@@ -2786,15 +1561,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -2802,19 +1569,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -2830,35 +1585,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
           "named": true
         },
         {
@@ -2870,11 +1601,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -2965,16 +1692,6 @@
     "type": "constant_constructor_signature",
     "named": true,
     "fields": {
-      "modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "external",
-            "named": false
-          }
-        ]
-      },
       "modifier_list": {
         "multiple": true,
         "required": true,
@@ -2984,8 +1701,8 @@
             "named": true
           },
           {
-            "type": "external",
-            "named": false
+            "type": "external_",
+            "named": true
           }
         ]
       }
@@ -3023,6 +1740,10 @@
         },
         {
           "type": "type_arguments",
+          "named": true
+        },
+        {
+          "type": "type_dot_identifier_",
           "named": true
         },
         {
@@ -3196,23 +1917,13 @@
     "type": "declaration_variant_constructor_signature",
     "named": true,
     "fields": {
-      "modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "external",
-            "named": false
-          }
-        ]
-      },
       "modifier_list": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "external",
-            "named": false
+            "type": "external_",
+            "named": true
           }
         ]
       }
@@ -3232,16 +1943,6 @@
     "type": "declaration_variant_factory_constructor_signature",
     "named": true,
     "fields": {
-      "modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "external",
-            "named": false
-          }
-        ]
-      },
       "modifier_list": {
         "multiple": true,
         "required": false,
@@ -3251,8 +1952,8 @@
             "named": true
           },
           {
-            "type": "external",
-            "named": false
+            "type": "external_",
+            "named": true
           }
         ]
       }
@@ -3276,31 +1977,17 @@
     "type": "declaration_variant_function_signature",
     "named": true,
     "fields": {
-      "modifier": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "external",
-            "named": false
-          },
-          {
-            "type": "static",
-            "named": false
-          }
-        ]
-      },
       "modifier_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "external",
-            "named": false
+            "type": "external_and_static_",
+            "named": true
           },
           {
-            "type": "static",
-            "named": false
+            "type": "static_modifier",
+            "named": true
           }
         ]
       }
@@ -3320,23 +2007,13 @@
     "type": "declaration_variant_getter_signature",
     "named": true,
     "fields": {
-      "modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "external",
-            "named": false
-          }
-        ]
-      },
       "modifier_list": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "external",
-            "named": false
+            "type": "external_builtin",
+            "named": true
           }
         ]
       }
@@ -3356,16 +2033,6 @@
     "type": "declaration_variant_initialized_identifier_list",
     "named": true,
     "fields": {
-      "modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "static",
-            "named": false
-          }
-        ]
-      },
       "modifier_list": {
         "multiple": true,
         "required": false,
@@ -3379,12 +2046,12 @@
             "named": true
           },
           {
-            "type": "late",
-            "named": false
+            "type": "late_builtin",
+            "named": true
           },
           {
-            "type": "static",
-            "named": false
+            "type": "static_modifier",
+            "named": true
           }
         ]
       },
@@ -3418,23 +2085,13 @@
     "type": "declaration_variant_operator_signature",
     "named": true,
     "fields": {
-      "modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "external",
-            "named": false
-          }
-        ]
-      },
       "modifier_list": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "external",
-            "named": false
+            "type": "external_",
+            "named": true
           }
         ]
       }
@@ -3454,31 +2111,13 @@
     "type": "declaration_variant_setter_signature",
     "named": true,
     "fields": {
-      "modifier": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "external",
-            "named": false
-          },
-          {
-            "type": "static",
-            "named": false
-          }
-        ]
-      },
       "modifier_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "external",
-            "named": false
-          },
-          {
-            "type": "static",
-            "named": false
+            "type": "external_and_static_",
+            "named": true
           }
         ]
       }
@@ -3498,16 +2137,6 @@
     "type": "declaration_variant_static_final_declaration_list",
     "named": true,
     "fields": {
-      "modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "static",
-            "named": false
-          }
-        ]
-      },
       "modifier_list": {
         "multiple": true,
         "required": false,
@@ -3521,8 +2150,8 @@
             "named": true
           },
           {
-            "type": "static",
-            "named": false
+            "type": "static_modifier",
+            "named": true
           }
         ]
       },
@@ -3563,11 +2192,11 @@
         ]
       },
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -3603,7 +2232,7 @@
       "required": false,
       "types": [
         {
-          "type": "annotation_",
+          "type": "metadata_",
           "named": true
         }
       ]
@@ -3712,11 +2341,11 @@
     "named": true,
     "fields": {
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -3779,11 +2408,11 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
-          "type": "annotation_",
+          "type": "metadata_",
           "named": true
         }
       ]
@@ -3802,10 +2431,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -3818,15 +2443,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -3838,19 +2455,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -3866,19 +2471,7 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
           "named": true
         },
         {
@@ -3890,14 +2483,6 @@
           "named": true
         },
         {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
           "type": "type_cast_expression",
           "named": true
         },
@@ -3906,11 +2491,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -3935,20 +2516,6 @@
           }
         ]
       },
-      "constructor": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          }
-        ]
-      },
       "object": {
         "multiple": true,
         "required": false,
@@ -3962,39 +2529,11 @@
             "named": false
           },
           {
-            "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
-            "named": true
-          },
-          {
-            "type": "bitwise_and_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_or_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_xor_expression",
-            "named": true
-          },
-          {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
             "type": "const_object_expression",
             "named": true
           },
           {
-            "type": "equality_expression",
+            "type": "expression_",
             "named": true
           },
           {
@@ -4006,23 +2545,7 @@
             "named": true
           },
           {
-            "type": "if_null_expression",
-            "named": true
-          },
-          {
             "type": "literal",
-            "named": true
-          },
-          {
-            "type": "logical_and_expression",
-            "named": true
-          },
-          {
-            "type": "logical_or_expression",
-            "named": true
-          },
-          {
-            "type": "multiplicative_expression",
             "named": true
           },
           {
@@ -4030,23 +2553,7 @@
             "named": true
           },
           {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
-            "type": "relational_expression",
-            "named": true
-          },
-          {
             "type": "scoped_identifier",
-            "named": true
-          },
-          {
-            "type": "selector",
-            "named": true
-          },
-          {
-            "type": "shift_expression",
             "named": true
           },
           {
@@ -4058,41 +2565,33 @@
             "named": true
           },
           {
-            "type": "throw",
-            "named": true
-          },
-          {
-            "type": "type_cast_expression",
-            "named": true
-          },
-          {
-            "type": "type_test_expression",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
             "type": "unconditional_assignable_selector",
             "named": true
           }
         ]
-      },
-      "type_arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "type_arguments",
-            "named": true
-          }
-        ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "super",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        },
+        {
+          "type": "type_arguments",
+          "named": true
+        }
+      ]
     }
   },
   {
-    "type": "expression_statement",
+    "type": "expression_",
     "named": true,
     "fields": {},
     "children": {
@@ -4128,27 +2627,11 @@
           "named": true
         },
         {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
           "type": "equality_expression",
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -4164,31 +2647,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
           "named": true
         },
         {
@@ -4204,11 +2667,22 @@
           "named": true
         },
         {
-          "type": "unary_expression",
+          "type": "unary_expression_",
           "named": true
-        },
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
         {
-          "type": "unconditional_assignable_selector",
+          "type": "expression_",
           "named": true
         }
       ]
@@ -4231,6 +2705,10 @@
           "named": true
         },
         {
+          "type": "type_dot_identifier_",
+          "named": true
+        },
+        {
           "type": "type_identifier",
           "named": true
         }
@@ -4246,15 +2724,15 @@
       "required": false,
       "types": [
         {
-          "type": "annotation_",
-          "named": true
-        },
-        {
           "type": "declaration",
           "named": true
         },
         {
           "type": "function_body",
+          "named": true
+        },
+        {
+          "type": "metadata_",
           "named": true
         },
         {
@@ -4289,11 +2767,11 @@
         ]
       },
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -4315,6 +2793,56 @@
           {
             "type": "type_parameter_list",
             "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "external_",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "external_builtin",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "external_and_static_",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "external_",
+          "named": true
+        },
+        {
+          "type": "static_modifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "external_builtin",
+    "named": true,
+    "fields": {
+      "modifier": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "external",
+            "named": false
           }
         ]
       }
@@ -4377,10 +2905,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -4401,15 +2925,7 @@
           "named": true
         },
         {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
           "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
           "named": true
         },
         {
@@ -4418,10 +2934,6 @@
         },
         {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -4437,19 +2949,7 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
           "named": true
         },
         {
@@ -4457,15 +2957,7 @@
           "named": true
         },
         {
-          "type": "super",
-          "named": true
-        },
-        {
           "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
           "named": true
         },
         {
@@ -4477,11 +2969,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -4521,6 +3009,10 @@
         },
         {
           "type": "inferred_type",
+          "named": true
+        },
+        {
+          "type": "late_builtin",
           "named": true
         },
         {
@@ -4565,127 +3057,11 @@
     "named": true,
     "fields": {
       "block_collection": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
-            "named": true
-          },
-          {
-            "type": "bitwise_and_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_or_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_xor_expression",
-            "named": true
-          },
-          {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
-            "named": true
-          },
-          {
-            "type": "equality_expression",
-            "named": true
-          },
-          {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_null_expression",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "logical_and_expression",
-            "named": true
-          },
-          {
-            "type": "logical_or_expression",
-            "named": true
-          },
-          {
-            "type": "multiplicative_expression",
-            "named": true
-          },
-          {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
-            "type": "relational_expression",
-            "named": true
-          },
-          {
-            "type": "selector",
-            "named": true
-          },
-          {
-            "type": "shift_expression",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          },
-          {
-            "type": "throw",
-            "named": true
-          },
-          {
-            "type": "type_cast_expression",
-            "named": true
-          },
-          {
-            "type": "type_test_expression",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
+            "type": "expression_",
             "named": true
           }
         ]
@@ -4761,127 +3137,11 @@
     "named": true,
     "fields": {
       "block_collection": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
-            "named": true
-          },
-          {
-            "type": "bitwise_and_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_or_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_xor_expression",
-            "named": true
-          },
-          {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
-            "named": true
-          },
-          {
-            "type": "equality_expression",
-            "named": true
-          },
-          {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_null_expression",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "logical_and_expression",
-            "named": true
-          },
-          {
-            "type": "logical_or_expression",
-            "named": true
-          },
-          {
-            "type": "multiplicative_expression",
-            "named": true
-          },
-          {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
-            "type": "relational_expression",
-            "named": true
-          },
-          {
-            "type": "selector",
-            "named": true
-          },
-          {
-            "type": "shift_expression",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          },
-          {
-            "type": "throw",
-            "named": true
-          },
-          {
-            "type": "type_cast_expression",
-            "named": true
-          },
-          {
-            "type": "type_test_expression",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
+            "type": "expression_",
             "named": true
           }
         ]
@@ -4921,51 +3181,11 @@
         ]
       },
       "body": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
-            "named": true
-          },
-          {
-            "type": "bitwise_and_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_or_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_xor_expression",
-            "named": true
-          },
-          {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
-            "named": true
-          },
-          {
-            "type": "equality_expression",
+            "type": "expression_",
             "named": true
           },
           {
@@ -4973,19 +3193,7 @@
             "named": true
           },
           {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_element",
-            "named": true
-          },
-          {
-            "type": "if_null_expression",
             "named": true
           },
           {
@@ -4993,71 +3201,7 @@
             "named": true
           },
           {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "logical_and_expression",
-            "named": true
-          },
-          {
-            "type": "logical_or_expression",
-            "named": true
-          },
-          {
-            "type": "multiplicative_expression",
-            "named": true
-          },
-          {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
-            "type": "relational_expression",
-            "named": true
-          },
-          {
-            "type": "selector",
-            "named": true
-          },
-          {
-            "type": "shift_expression",
-            "named": true
-          },
-          {
             "type": "spread_element",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          },
-          {
-            "type": "throw",
-            "named": true
-          },
-          {
-            "type": "type_cast_expression",
-            "named": true
-          },
-          {
-            "type": "type_test_expression",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
             "named": true
           }
         ]
@@ -5145,11 +3289,11 @@
     "named": true,
     "fields": {
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -5194,119 +3338,11 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "expression_",
           "named": true
         }
       ]
@@ -5377,123 +3413,15 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
+          "type": "expression_",
           "named": true
         },
         {
           "type": "function_non_arrow_variant",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
           "named": true
         }
       ]
@@ -5573,13 +3501,21 @@
     "type": "function_signature",
     "named": true,
     "fields": {
-      "name": {
+      "identifier": {
         "multiple": false,
         "required": true,
         "types": [
           {
+            "type": "get",
+            "named": false
+          },
+          {
             "type": "identifier",
             "named": true
+          },
+          {
+            "type": "set",
+            "named": false
           }
         ]
       }
@@ -5621,6 +3557,10 @@
         },
         {
           "type": "type_arguments",
+          "named": true
+        },
+        {
+          "type": "type_dot_identifier_",
           "named": true
         },
         {
@@ -5667,11 +3607,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "identifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "if",
@@ -5740,51 +3675,11 @@
     "named": true,
     "fields": {
       "alternative": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
-            "named": true
-          },
-          {
-            "type": "bitwise_and_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_or_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_xor_expression",
-            "named": true
-          },
-          {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
-            "named": true
-          },
-          {
-            "type": "equality_expression",
+            "type": "expression_",
             "named": true
           },
           {
@@ -5792,19 +3687,7 @@
             "named": true
           },
           {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_element",
-            "named": true
-          },
-          {
-            "type": "if_null_expression",
             "named": true
           },
           {
@@ -5812,121 +3695,17 @@
             "named": true
           },
           {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "logical_and_expression",
-            "named": true
-          },
-          {
-            "type": "logical_or_expression",
-            "named": true
-          },
-          {
-            "type": "multiplicative_expression",
-            "named": true
-          },
-          {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
-            "type": "relational_expression",
-            "named": true
-          },
-          {
-            "type": "selector",
-            "named": true
-          },
-          {
-            "type": "shift_expression",
-            "named": true
-          },
-          {
             "type": "spread_element",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          },
-          {
-            "type": "throw",
-            "named": true
-          },
-          {
-            "type": "type_cast_expression",
-            "named": true
-          },
-          {
-            "type": "type_test_expression",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
             "named": true
           }
         ]
       },
       "consequence": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
-            "named": true
-          },
-          {
-            "type": "bitwise_and_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_or_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_xor_expression",
-            "named": true
-          },
-          {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
-            "named": true
-          },
-          {
-            "type": "equality_expression",
+            "type": "expression_",
             "named": true
           },
           {
@@ -5934,19 +3713,7 @@
             "named": true
           },
           {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_element",
-            "named": true
-          },
-          {
-            "type": "if_null_expression",
             "named": true
           },
           {
@@ -5954,71 +3721,7 @@
             "named": true
           },
           {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "logical_and_expression",
-            "named": true
-          },
-          {
-            "type": "logical_or_expression",
-            "named": true
-          },
-          {
-            "type": "multiplicative_expression",
-            "named": true
-          },
-          {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
-            "type": "relational_expression",
-            "named": true
-          },
-          {
-            "type": "selector",
-            "named": true
-          },
-          {
-            "type": "shift_expression",
-            "named": true
-          },
-          {
             "type": "spread_element",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          },
-          {
-            "type": "throw",
-            "named": true
-          },
-          {
-            "type": "type_cast_expression",
-            "named": true
-          },
-          {
-            "type": "type_test_expression",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
             "named": true
           }
         ]
@@ -6040,23 +3743,11 @@
     "named": true,
     "fields": {
       "first": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
             "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -6072,15 +3763,7 @@
             "named": true
           },
           {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
             "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
             "named": true
           },
           {
@@ -6088,19 +3771,7 @@
             "named": true
           },
           {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_null_expression",
-            "named": true
-          },
-          {
-            "type": "literal",
             "named": true
           },
           {
@@ -6116,35 +3787,11 @@
             "named": true
           },
           {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
             "type": "relational_expression",
             "named": true
           },
           {
-            "type": "selector",
-            "named": true
-          },
-          {
             "type": "shift_expression",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          },
-          {
-            "type": "throw",
             "named": true
           },
           {
@@ -6156,11 +3803,7 @@
             "named": true
           },
           {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
+            "type": "unary_expression_",
             "named": true
           }
         ]
@@ -6170,19 +3813,7 @@
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
             "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -6198,15 +3829,7 @@
             "named": true
           },
           {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
             "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
             "named": true
           },
           {
@@ -6214,19 +3837,7 @@
             "named": true
           },
           {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_null_expression",
-            "named": true
-          },
-          {
-            "type": "literal",
             "named": true
           },
           {
@@ -6242,35 +3853,11 @@
             "named": true
           },
           {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
             "type": "relational_expression",
             "named": true
           },
           {
-            "type": "selector",
-            "named": true
-          },
-          {
             "type": "shift_expression",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          },
-          {
-            "type": "throw",
             "named": true
           },
           {
@@ -6282,11 +3869,7 @@
             "named": true
           },
           {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
+            "type": "unary_expression_",
             "named": true
           }
         ]
@@ -6322,6 +3905,10 @@
         },
         {
           "type": "type_arguments",
+          "named": true
+        },
+        {
+          "type": "type_dot_identifier_",
           "named": true
         },
         {
@@ -6550,253 +4137,21 @@
     "named": true,
     "fields": {
       "key_value_pair_key": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
-            "named": true
-          },
-          {
-            "type": "bitwise_and_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_or_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_xor_expression",
-            "named": true
-          },
-          {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
-            "named": true
-          },
-          {
-            "type": "equality_expression",
-            "named": true
-          },
-          {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_null_expression",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "logical_and_expression",
-            "named": true
-          },
-          {
-            "type": "logical_or_expression",
-            "named": true
-          },
-          {
-            "type": "multiplicative_expression",
-            "named": true
-          },
-          {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
-            "type": "relational_expression",
-            "named": true
-          },
-          {
-            "type": "selector",
-            "named": true
-          },
-          {
-            "type": "shift_expression",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          },
-          {
-            "type": "throw",
-            "named": true
-          },
-          {
-            "type": "type_cast_expression",
-            "named": true
-          },
-          {
-            "type": "type_test_expression",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
+            "type": "expression_",
             "named": true
           }
         ]
       },
       "key_value_pair_value": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
-            "named": true
-          },
-          {
-            "type": "bitwise_and_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_or_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_xor_expression",
-            "named": true
-          },
-          {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
-            "named": true
-          },
-          {
-            "type": "equality_expression",
-            "named": true
-          },
-          {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_null_expression",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "logical_and_expression",
-            "named": true
-          },
-          {
-            "type": "logical_or_expression",
-            "named": true
-          },
-          {
-            "type": "multiplicative_expression",
-            "named": true
-          },
-          {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
-            "type": "relational_expression",
-            "named": true
-          },
-          {
-            "type": "selector",
-            "named": true
-          },
-          {
-            "type": "shift_expression",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          },
-          {
-            "type": "throw",
-            "named": true
-          },
-          {
-            "type": "type_cast_expression",
-            "named": true
-          },
-          {
-            "type": "type_test_expression",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
+            "type": "expression_",
             "named": true
           }
         ]
@@ -6864,6 +4219,11 @@
     }
   },
   {
+    "type": "late_builtin",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "library_export",
     "named": true,
     "fields": {},
@@ -6872,15 +4232,15 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_",
-          "named": true
-        },
-        {
           "type": "combinator",
           "named": true
         },
         {
           "type": "configurable_uri",
+          "named": true
+        },
+        {
+          "type": "metadata_",
           "named": true
         }
       ]
@@ -6895,11 +4255,11 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_",
+          "type": "import_specification",
           "named": true
         },
         {
-          "type": "import_specification",
+          "type": "metadata_",
           "named": true
         }
       ]
@@ -6914,11 +4274,11 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_",
+          "type": "dotted_identifier_list",
           "named": true
         },
         {
-          "type": "dotted_identifier_list",
+          "type": "metadata_",
           "named": true
         }
       ]
@@ -6929,43 +4289,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
+          "type": "expression_",
           "named": true
         },
         {
@@ -6973,19 +4301,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_element",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
           "named": true
         },
         {
@@ -6993,71 +4309,7 @@
           "named": true
         },
         {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
           "type": "spread_element",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
           "named": true
         }
       ]
@@ -7187,10 +4439,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -7203,15 +4451,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -7219,19 +4459,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -7247,35 +4475,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
           "named": true
         },
         {
@@ -7287,11 +4491,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -7310,10 +4510,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -7326,15 +4522,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -7342,19 +4530,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -7370,35 +4546,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
           "named": true
         },
         {
@@ -7410,11 +4562,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -7464,15 +4612,30 @@
     }
   },
   {
+    "type": "metadata_",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation_",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "method",
     "named": true,
     "fields": {
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -7548,23 +4711,13 @@
     "type": "method_signature_variant_static",
     "named": true,
     "fields": {
-      "modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "static",
-            "named": false
-          }
-        ]
-      },
       "modifier_list": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "static",
-            "named": false
+            "type": "static_modifier",
+            "named": true
           }
         ]
       }
@@ -7593,11 +4746,11 @@
     "named": true,
     "fields": {
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -7737,6 +4890,10 @@
           "named": true
         },
         {
+          "type": "type_dot_identifier_",
+          "named": true
+        },
+        {
           "type": "type_identifier",
           "named": true
         }
@@ -7786,91 +4943,7 @@
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
           "type": "multiplicative_operator",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
           "named": true
         },
         {
@@ -7878,27 +4951,7 @@
           "named": true
         },
         {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -7918,127 +4971,11 @@
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "additive_expression",
-            "named": true
-          },
-          {
-            "type": "assignment",
-            "named": true
-          },
-          {
-            "type": "bitwise_and_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_or_expression",
-            "named": true
-          },
-          {
-            "type": "bitwise_xor_expression",
-            "named": true
-          },
-          {
-            "type": "cascade_section",
-            "named": true
-          },
-          {
-            "type": "conditional_expression",
-            "named": true
-          },
-          {
-            "type": "const_object_expression",
-            "named": true
-          },
-          {
-            "type": "equality_expression",
-            "named": true
-          },
-          {
-            "type": "function_expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_null_expression",
+            "type": "expression_",
             "named": true
           },
           {
             "type": "label",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "logical_and_expression",
-            "named": true
-          },
-          {
-            "type": "logical_or_expression",
-            "named": true
-          },
-          {
-            "type": "multiplicative_expression",
-            "named": true
-          },
-          {
-            "type": "new_expression",
-            "named": true
-          },
-          {
-            "type": "postfix_expression",
-            "named": true
-          },
-          {
-            "type": "relational_expression",
-            "named": true
-          },
-          {
-            "type": "selector",
-            "named": true
-          },
-          {
-            "type": "shift_expression",
-            "named": true
-          },
-          {
-            "type": "super",
-            "named": true
-          },
-          {
-            "type": "this",
-            "named": true
-          },
-          {
-            "type": "throw",
-            "named": true
-          },
-          {
-            "type": "type_cast_expression",
-            "named": true
-          },
-          {
-            "type": "type_test_expression",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unconditional_assignable_selector",
             "named": true
           }
         ]
@@ -8085,119 +5022,11 @@
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
+          "type": "expression_",
           "named": true
         },
         {
           "type": "formal_parameter",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
           "named": true
         }
       ]
@@ -8251,11 +5080,11 @@
     "named": true,
     "fields": {
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -8458,7 +5287,7 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_",
+          "type": "metadata_",
           "named": true
         },
         {
@@ -8477,11 +5306,11 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_",
+          "type": "dotted_identifier_list",
           "named": true
         },
         {
-          "type": "dotted_identifier_list",
+          "type": "metadata_",
           "named": true
         },
         {
@@ -8500,119 +5329,11 @@
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
+          "type": "expression_",
           "named": true
         },
         {
           "type": "formal_parameter",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
           "named": true
         }
       ]
@@ -8640,6 +5361,61 @@
         },
         {
           "type": "selector",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "postfix_expression_",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "const_object_expression",
+          "named": true
+        },
+        {
+          "type": "expression_",
+          "named": true
+        },
+        {
+          "type": "function_expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "new_expression",
+          "named": true
+        },
+        {
+          "type": "postfix_expression",
+          "named": true
+        },
+        {
+          "type": "selector",
+          "named": true
+        },
+        {
+          "type": "super",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        },
+        {
+          "type": "unconditional_assignable_selector",
           "named": true
         }
       ]
@@ -8746,11 +5522,11 @@
     "named": true,
     "fields": {
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -8849,10 +5625,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -8865,15 +5637,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -8881,19 +5645,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -8909,23 +5661,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
           "type": "relational_operator",
-          "named": true
-        },
-        {
-          "type": "selector",
           "named": true
         },
         {
@@ -8937,14 +5677,6 @@
           "named": true
         },
         {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
           "type": "type_cast_expression",
           "named": true
         },
@@ -8953,11 +5685,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -9037,27 +5765,11 @@
           "named": true
         },
         {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
           "type": "equality_expression",
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -9073,31 +5785,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
           "named": true
         },
         {
@@ -9113,11 +5805,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -9190,43 +5878,11 @@
       "required": false,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
           "type": "const_builtin",
           "named": true
         },
         {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
+          "type": "expression_",
           "named": true
         },
         {
@@ -9234,19 +5890,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_element",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
           "named": true
         },
         {
@@ -9254,75 +5898,11 @@
           "named": true
         },
         {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
           "type": "spread_element",
           "named": true
         },
         {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
           "type": "type_arguments",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
           "named": true
         }
       ]
@@ -9379,10 +5959,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -9395,15 +5971,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -9411,19 +5979,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -9439,19 +5995,7 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
           "named": true
         },
         {
@@ -9467,14 +6011,6 @@
           "named": true
         },
         {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
           "type": "type_cast_expression",
           "named": true
         },
@@ -9483,11 +6019,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -9533,119 +6065,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "expression_",
           "named": true
         }
       ]
@@ -9739,115 +6163,11 @@
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
+          "type": "expression_",
           "named": true
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
           "named": true
         }
       ]
@@ -9866,6 +6186,22 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "static_modifier",
+    "named": true,
+    "fields": {
+      "modifier": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "static",
+            "named": false
+          }
+        ]
+      }
     }
   },
   {
@@ -9946,119 +6282,11 @@
       "required": false,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "case_builtin",
           "named": true
         },
         {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "expression_",
           "named": true
         }
       ]
@@ -10084,123 +6312,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
+          "type": "expression_",
           "named": true
         },
         {
           "type": "identifier_dollar_escaped",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
           "named": true
         }
       ]
@@ -10216,7 +6336,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -10240,15 +6360,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -10256,19 +6368,11 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
+          "type": "expression_",
           "named": true
         },
         {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -10284,31 +6388,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
           "named": true
         },
         {
@@ -10324,11 +6408,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -10422,11 +6502,11 @@
     "named": true,
     "fields": {
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -10440,8 +6520,8 @@
             "named": true
           },
           {
-            "type": "late",
-            "named": false
+            "type": "late_builtin",
+            "named": true
           }
         ]
       },
@@ -10476,22 +6556,12 @@
     "named": true,
     "fields": {
       "decorator_list": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "annotation_",
-            "named": true
-          }
-        ]
-      },
-      "modifier": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "external",
-            "named": false
+            "type": "metadata_",
+            "named": true
           }
         ]
       },
@@ -10500,8 +6570,8 @@
         "required": false,
         "types": [
           {
-            "type": "external",
-            "named": false
+            "type": "external_builtin",
+            "named": true
           }
         ]
       }
@@ -10530,11 +6600,11 @@
     "named": true,
     "fields": {
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -10657,11 +6727,19 @@
           "named": true
         },
         {
+          "type": "late_builtin",
+          "named": true
+        },
+        {
           "type": "type",
           "named": true
         },
         {
           "type": "type_arguments",
+          "named": true
+        },
+        {
+          "type": "type_dot_identifier_",
           "named": true
         },
         {
@@ -10680,11 +6758,11 @@
     "named": true,
     "fields": {
       "decorator_list": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "annotation_",
+            "type": "metadata_",
             "named": true
           }
         ]
@@ -10704,6 +6782,10 @@
         },
         {
           "type": "type",
+          "named": true
+        },
+        {
+          "type": "type_dot_identifier_",
           "named": true
         },
         {
@@ -10779,10 +6861,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -10795,15 +6873,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -10811,19 +6881,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -10839,35 +6897,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
           "named": true
         },
         {
@@ -10883,11 +6917,22 @@
           "named": true
         },
         {
-          "type": "unary_expression",
+          "type": "unary_expression_",
           "named": true
-        },
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_dot_identifier_",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
         {
-          "type": "unconditional_assignable_selector",
+          "type": "type_identifier",
           "named": true
         }
       ]
@@ -10910,6 +6955,10 @@
           "named": true
         },
         {
+          "type": "type_dot_identifier_",
+          "named": true
+        },
+        {
           "type": "type_identifier",
           "named": true
         }
@@ -10925,7 +6974,7 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_",
+          "type": "metadata_",
           "named": true
         },
         {
@@ -10986,10 +7035,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "bitwise_and_expression",
           "named": true
         },
@@ -11002,15 +7047,7 @@
           "named": true
         },
         {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
           "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
           "named": true
         },
         {
@@ -11018,19 +7055,7 @@
           "named": true
         },
         {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
           "named": true
         },
         {
@@ -11046,35 +7071,11 @@
           "named": true
         },
         {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "relational_expression",
           "named": true
         },
         {
-          "type": "selector",
-          "named": true
-        },
-        {
           "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
           "named": true
         },
         {
@@ -11090,11 +7091,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "unary_expression_",
           "named": true
         }
       ]
@@ -11109,11 +7106,11 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "metadata_",
           "named": true
         },
         {
@@ -11132,15 +7129,7 @@
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
           "type": "assignable_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
@@ -11148,59 +7137,7 @@
           "named": true
         },
         {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
           "type": "increment_operator",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
           "named": true
         },
         {
@@ -11208,31 +7145,7 @@
           "named": true
         },
         {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
           "type": "prefix_operator",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
           "named": true
         },
         {
@@ -11240,31 +7153,30 @@
           "named": true
         },
         {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
           "type": "tilde_operator",
           "named": true
         },
         {
-          "type": "type_cast_expression",
+          "type": "unary_expression_",
           "named": true
-        },
+        }
+      ]
+    }
+  },
+  {
+    "type": "unary_expression_",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
         {
-          "type": "type_test_expression",
+          "type": "postfix_expression_",
           "named": true
         },
         {
           "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
           "named": true
         }
       ]
@@ -11275,119 +7187,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
+          "type": "expression_",
           "named": true
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
           "named": true
         }
       ]
@@ -11488,119 +7296,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "expression_",
           "named": true
         }
       ]
@@ -11611,119 +7311,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "additive_expression",
-          "named": true
-        },
-        {
-          "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "bitwise_and_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_or_expression",
-          "named": true
-        },
-        {
-          "type": "bitwise_xor_expression",
-          "named": true
-        },
-        {
-          "type": "cascade_section",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "const_object_expression",
-          "named": true
-        },
-        {
-          "type": "equality_expression",
-          "named": true
-        },
-        {
-          "type": "function_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_null_expression",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "logical_and_expression",
-          "named": true
-        },
-        {
-          "type": "logical_or_expression",
-          "named": true
-        },
-        {
-          "type": "multiplicative_expression",
-          "named": true
-        },
-        {
-          "type": "new_expression",
-          "named": true
-        },
-        {
-          "type": "postfix_expression",
-          "named": true
-        },
-        {
-          "type": "relational_expression",
-          "named": true
-        },
-        {
-          "type": "selector",
-          "named": true
-        },
-        {
-          "type": "shift_expression",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "throw",
-          "named": true
-        },
-        {
-          "type": "type_cast_expression",
-          "named": true
-        },
-        {
-          "type": "type_test_expression",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unconditional_assignable_selector",
+          "type": "expression_",
           "named": true
         }
       ]
@@ -11902,6 +7494,10 @@
     "named": false
   },
   {
+    "type": "assert_builtin_",
+    "named": true
+  },
+  {
     "type": "async",
     "named": false
   },
@@ -11916,6 +7512,10 @@
   {
     "type": "bool",
     "named": false
+  },
+  {
+    "type": "break_builtin_",
+    "named": true
   },
   {
     "type": "case_builtin",
@@ -12032,6 +7632,10 @@
   {
     "type": "hide",
     "named": false
+  },
+  {
+    "type": "identifier",
+    "named": true
   },
   {
     "type": "identifier_dollar_escaped",
