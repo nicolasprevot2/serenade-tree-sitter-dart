@@ -40,7 +40,7 @@
   },
   "scripts": {
     "build_init": "tree-sitter generate && node-gyp configure && node-gyp build",
-    "build": "tree-sitter generate && node-gyp build",
+    "build": "tree-sitter generate",
     "test": "tree-sitter test",
     "build-test": "tree-sitter generate && node-gyp build && tree-sitter test",
     "watch-test": "npm-watch test",
@@ -53,5 +53,12 @@
         "dart"
       ]
     }
-  ]
+  ],
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "arrowParens": "avoid",
+    "singleQuote": true
+  }
 }
